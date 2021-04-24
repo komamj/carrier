@@ -1,4 +1,5 @@
 import 'package:carrier/presentation/login/user_view_model.dart';
+import 'package:carrier/presentation/util/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,9 +9,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  static const error = "账号或密码错误，请重新登录";
-  static const successful = "登录成功";
-
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   final TextEditingController _userNameController = TextEditingController();
@@ -76,7 +74,8 @@ class _LoginPageState extends State<LoginPage> {
                   maxLength: 16,
                   controller: _passwordController,
                   cursorColor: Theme.of(context).accentColor,
-                  obscureText: true,
+                  obscureText: context.select(
+                      (UserViewModel viewModel) => !viewModel.showPassword),
                   keyboardType: TextInputType.text,
                   textInputAction: TextInputAction.done,
                   decoration: InputDecoration(
@@ -92,6 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                               : Icons.visibility_off)),
                     ),
                   ),
+                  validator: (String? value) {},
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 4),
@@ -120,7 +120,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     TextButton(
                       onPressed: () {
-                        // todo handle forgot password
+                        Navigator.pushNamed(
+                            context, Constants.changePasswordPage);
                       },
                       child: Text("忘记密码"),
                     ),
@@ -137,12 +138,15 @@ class _LoginPageState extends State<LoginPage> {
                           child: Text("登录"),
                           padding: EdgeInsets.symmetric(vertical: 16),
                         ),
-                        onPressed: context.select(
+                        onPressed: () => context.read<UserViewModel>().login(
+                            _userNameController.text, _passwordController.text)
+                        /*context.select(
                           ((UserViewModel viewModel) => viewModel.isValid
                               ? () => viewModel.login(_userNameController.text,
                                   _passwordController.text)
                               : null),
-                        ),
+                        )*/
+                        ,
                       ),
                     ),
                   ],
@@ -153,5 +157,32 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  _setLoadingIndicator(bool isActive) {
+    if (isActive) {
+      showDialog(
+          context: this.context,
+          barrierDismissible: true,
+          builder: (context) {
+            return SimpleDialog(
+              contentPadding: EdgeInsets.only(top: 32.0, bottom: 32.0),
+              children: <Widget>[
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    CircularProgressIndicator(),
+                    Padding(
+                      padding: EdgeInsets.only(top: 16.0),
+                      child: Text("正在登录中..."),
+                    )
+                  ],
+                )
+              ],
+            );
+          });
+    } else {
+      Navigator.of(context).pop();
+    }
   }
 }

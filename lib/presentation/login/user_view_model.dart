@@ -2,18 +2,25 @@ import 'package:carrier/domain/repository/user_repository.dart';
 import 'package:carrier/presentation/base/base_view_model.dart';
 
 class UserViewModel extends BaseViewModel {
+  static const _error = "账号或密码错误，请重新登录";
+  static const _successful = "登录成功";
+
   final UserRepository repository;
-
-  bool _savePassword = false;
-
-  bool get savePassword => _savePassword;
-  bool _showPassword = false;
-
-  bool get showPassword => _showPassword;
 
   bool _isValid = false;
 
   bool get isValid => _isValid;
+
+  bool _isValidPhoneNumber = false;
+  bool _isValidPassword = false;
+
+  bool _savePassword = true;
+
+  bool get savePassword => _savePassword;
+
+  bool _showPassword = false;
+
+  bool get showPassword => _showPassword;
 
   UserViewModel({required this.repository});
 
@@ -37,13 +44,13 @@ class UserViewModel extends BaseViewModel {
 
   void checkPassword(String? password) {}
 
-  void login(String? userName, String? password) {
-    if (userName == null ||
-        userName.isEmpty ||
+  Future login(String? phoneNumber, String? password) async {
+    if (phoneNumber == null ||
+        phoneNumber.isEmpty ||
         password == null ||
         password.isEmpty) {
       return;
     }
-    repository.login(userName, password);
+    return repository.login(phoneNumber, password);
   }
 }
