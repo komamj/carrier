@@ -30,13 +30,11 @@ dependencies:
   url_launcher: ^6.0.3 # url 启动浏览器
   webview_flutter: ^2.0.4 # 网页加载
   ota_update: ^3.0.1
-  amap_flutter_map: ^1.0.2
+  amap_flutter_map: ^2.0.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-dependency_overrides:
-  flutter_plugin_android_lifecycle: ^2.0.1
 
 dev_dependencies:
   flutter_test:
