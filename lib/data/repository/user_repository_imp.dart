@@ -14,7 +14,7 @@ class UserRepositoryImp extends UserRepository {
   UserRepositoryImp.internal();
 
   @override
-  void login() {}
+  void login(String userName, String password) {}
 
   @override
   Future<bool> isLogin() async {
