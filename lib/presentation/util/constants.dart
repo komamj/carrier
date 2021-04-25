@@ -9,6 +9,11 @@ class Constants {
   static const String carSchedulingPage = "/scheduling/car"; // 选择车辆页
   static const String driverSchedulingPage = "/scheduling/driver"; // 选择司机页
   static const String loginPage = "/login"; // 登录页
+  static const String usersPage = "/mine/users"; // 修改用户信息
+  static const String editUserPhonePage =
+      "/mine/users/edit_user_phone"; // 修改用户信息->更换手机号
+  static const String editUserNewPhonePage =
+      "/mine/users/edit_user_new_phone"; // 修改用户信息->更换手机号-->输入新手机号
   static const String settingsPage = "/mine/settings"; // 设置页
   static const String feedbackPage = "/mine/feedback"; // 反馈页
   static const String resourcePage = "/mine/resource"; // 资源管理页

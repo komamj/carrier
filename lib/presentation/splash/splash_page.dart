@@ -78,7 +78,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void _skip() {
-    Navigator.pushReplacementNamed(context, Constants.loginPage);
+    Navigator.pushReplacementNamed(context, Constants.homePage);
   }
 
   @override

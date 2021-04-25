@@ -36,16 +36,25 @@ class _HomePageState extends State<HomePage> {
     _selectedIndex = 0;
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: _titles[_selectedIndex],
+  //待完成泛型 类别验证
+  _appbar(int currentIndex) {
+    if (currentIndex != 2) {
+      return AppBar(
+        title: _titles[currentIndex],
         centerTitle: true,
         brightness: Brightness.light,
         backgroundColor: Colors.white,
         elevation: 0,
-      ),
+      );
+    } else {
+      return null;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: _appbar(context.watch<HomeViewModel>().currentIndex),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: bottomNavigationBarItems,
@@ -53,7 +62,8 @@ class _HomePageState extends State<HomePage> {
         onTap: (index) =>
             context.read<HomeViewModel>().updateCurrentIndex(index),
       ),
-      body: _pages[_selectedIndex],
+      //body: _pages[_selectedIndex],
+      body: _pages[context.watch<HomeViewModel>().currentIndex],
     );
   }
 }
