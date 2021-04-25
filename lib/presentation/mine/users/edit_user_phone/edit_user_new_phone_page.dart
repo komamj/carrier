@@ -87,7 +87,7 @@ class _EditUserNewPhonePageState extends State<EditUserNewPhonePage> {
                       maxLines: 1,
                       autofocus: false,
                       textAlign: TextAlign.end,
-                      keyboardType: TextInputType.number,
+                      keyboardType: TextInputType.phone,
                       decoration: const InputDecoration(
                         hintText: '请输入新手机号',
                         enabledBorder: UnderlineInputBorder(
@@ -192,7 +192,7 @@ class _EditUserNewPhonePageState extends State<EditUserNewPhonePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "更换手机号",
+          "绑定新手机号",
           //style: TextStyle(color: Colors.black54),
         ),
         //backgroundColor: Colors.white,
@@ -210,6 +210,7 @@ class _EditUserNewPhonePageState extends State<EditUserNewPhonePage> {
                 height: 20.0,
               ),
               this._oldPhone(),
+              SizedBox(height: 6.0),
               this._sendSms(),
               this._nextPage()
             ],

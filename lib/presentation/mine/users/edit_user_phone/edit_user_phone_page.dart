@@ -111,6 +111,7 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
                       ),
                       controller: _smsController,
                     )),
+                SizedBox(width: 20),
                 InkWell(
                   onTap: () {
                     if (_currentTimer <= 0) {
@@ -186,6 +187,7 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
                 height: 20.0,
               ),
               this._oldPhone(),
+              SizedBox(height: 6.0),
               this._sendSms(),
               this._nextPage()
             ],
