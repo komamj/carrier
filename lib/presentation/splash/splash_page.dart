@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:carrier/presentation/splash/splash_view_model.dart';
-import 'package:provider/provider.dart';
+import 'package:carrier/presentation/login/user_view_model.dart';
 import 'package:carrier/presentation/util/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class SplashPage extends StatefulWidget {
@@ -78,7 +78,11 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void _skip() {
-    Navigator.pushReplacementNamed(context, Constants.loginPage);
+    if (context.read<UserViewModel>().isLogin()) {
+      Navigator.pushReplacementNamed(context, Constants.homePage);
+    } else {
+      Navigator.pushReplacementNamed(context, Constants.loginPage);
+    }
   }
 
   @override

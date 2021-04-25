@@ -16,8 +16,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late int _selectedIndex;
-
   final List<BottomNavigationBarItem> bottomNavigationBarItems = [
     BottomNavigationBarItem(icon: Icon(Icons.home), label: "调度"),
     BottomNavigationBarItem(
@@ -30,17 +28,10 @@ class _HomePageState extends State<HomePage> {
   final _pages = [SchedulingPage(), WaybillPage(), MinePage()];
 
   @override
-  void initState() {
-    super.initState();
-
-    _selectedIndex = 0;
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: _titles[_selectedIndex],
+        title: _titles[context.watch<HomeViewModel>().currentIndex],
         centerTitle: true,
         brightness: Brightness.light,
         backgroundColor: Colors.white,
@@ -53,7 +44,7 @@ class _HomePageState extends State<HomePage> {
         onTap: (index) =>
             context.read<HomeViewModel>().updateCurrentIndex(index),
       ),
-      body: _pages[_selectedIndex],
+      body: _pages[context.watch<HomeViewModel>().currentIndex],
     );
   }
 }

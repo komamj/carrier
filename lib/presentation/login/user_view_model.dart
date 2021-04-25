@@ -30,6 +30,7 @@ class UserViewModel extends BaseViewModel {
   }
 
   bool isLogin() {
+    // repository.isLogin();
     return true;
   }
 
