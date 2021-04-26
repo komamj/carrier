@@ -12,7 +12,7 @@ class UserRequest {
       {this.phoneNumber = "",
       this.password = "",
       this.smsCode = "",
-      this.scope = "CARGO"});
+      this.scope = "PLATFORM"});
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         'userName': phoneNumber,
@@ -23,6 +23,7 @@ class UserRequest {
 
   // md5 加密
   String _generateMd5(String data) {
-    return md5.convert(utf8.encode(data)).toString();
+    String content = "\x8f\x70\x83\x8f2eh1.iaqw7$data";
+    return md5.convert(utf8.encode(content)).toString();
   }
 }
