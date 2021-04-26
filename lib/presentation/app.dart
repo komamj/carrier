@@ -1,19 +1,21 @@
 import 'package:carrier/di/injector.dart';
 import 'package:carrier/presentation/home/home_page.dart';
 import 'package:carrier/presentation/home/home_view_model.dart';
-import 'package:carrier/presentation/login/login_page.dart';
 import 'package:carrier/presentation/mine/agreement/platform_agreement_page.dart';
 import 'package:carrier/presentation/mine/feedback/feedback_page.dart';
 import 'package:carrier/presentation/mine/resource/resource_management_page.dart';
+import 'package:carrier/presentation/mine/settings/change_password_page.dart';
 import 'package:carrier/presentation/mine/settings/settings_page.dart';
 import 'package:carrier/presentation/scheduling/scheduling_view_model.dart';
 import 'package:carrier/presentation/splash/splash_page.dart';
 import 'package:carrier/presentation/splash/splash_view_model.dart';
+import 'package:carrier/presentation/user/login_page.dart';
 import 'package:carrier/presentation/util/constants.dart';
+import 'package:carrier/presentation/waybill/waybill_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'login/user_view_model.dart';
+import 'user/user_view_model.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -48,11 +50,17 @@ class App extends StatelessWidget {
                     create: (_) => SchedulingViewModel(
                         repository:
                             Injector.singleton.provideSchedulingRepository()),
+                  ),
+                  ChangeNotifierProvider(
+                    create: (_) => WaybillViewModel(
+                        repository:
+                            Injector.singleton.provideWaybillRepository()),
                   )
                 ],
                 child: HomePage(),
               ),
           Constants.settingsPage: (context) => SettingsPage(),
+          Constants.changePasswordPage: (context) => ChangePasswordPage(),
           Constants.feedbackPage: (context) => FeedbackPage(),
           Constants.agreementPage: (context) => PlatformAgreementPage(),
           Constants.resourcePage: (context) => ResourceManagementPage(),

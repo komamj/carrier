@@ -25,12 +25,13 @@ dependencies:
     sdk: flutter
   provider: ^5.0.0 # 数据共享
   dio: ^4.0.0 # 网络请求
+  crypto: ^3.0.1 # 加密
   shared_preferences: ^2.0.5 # key value 持久化存储
   image_picker: ^0.7.4 # 图片选择（相册或拍照）
   url_launcher: ^6.0.3 # url 启动浏览器
   webview_flutter: ^2.0.4 # 网页加载
+  amap_flutter_map: ^2.0.1 # 高德地图
   ota_update: ^3.0.1
-  amap_flutter_map: ^2.0.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

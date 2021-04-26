@@ -19,6 +19,10 @@ class SchedulingViewModel extends BaseViewModel {
 
   int get inTransitCount => _inTransitCount;
 
+  bool _isFirstLoading = true;
+
+  bool get firstLoading => _isFirstLoading;
+
   final SchedulingRepository repository;
 
   SchedulingViewModel({required this.repository});
@@ -32,6 +36,19 @@ class SchedulingViewModel extends BaseViewModel {
     debugPrint(
         "SchedulingViewModel updateCurrentIndex currentIndex:$currentIndex");
   }
+
+  void loadCount() {}
+
+  void loadToBeDetermined() async {
+    Future.delayed(Duration(milliseconds: 3000), () {
+      _isFirstLoading = false;
+      notifyListeners();
+    });
+  }
+
+  void loadInTheScheduling() {}
+
+  void loadInTransit() {}
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
