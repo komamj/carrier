@@ -18,6 +18,11 @@ class UserRepositoryImp extends UserRepository {
 
   @override
   Future login(String phoneNumber, String password) async {
+    _remoteDataSource.login(phoneNumber, password).then((value) {
+      if (value != null) {
+        _localDataSource.saveUser(value);
+      }
+    });
     return null;
   }
 

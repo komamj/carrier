@@ -9,7 +9,7 @@ import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class RemoteDataSource {
-  static const _baseUrl = "http:127.0.0.1:9009/";
+  static const _baseUrl = "https://wx.51ejd.cn/";
 
   final Dio client = Dio(BaseOptions(
       baseUrl: _baseUrl, receiveTimeout: 1000 * 10, connectTimeout: 5000));

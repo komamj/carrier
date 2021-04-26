@@ -26,25 +26,8 @@ class _SchedulingPageState extends State<SchedulingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.all(16),
-          child: TextField(
-            controller: _searchController,
-            decoration: InputDecoration(
-              prefixIcon: Icon(Icons.search),
-              filled: true,
-              hintText: "搜索项目",
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
-            ),
-          ),
-        ),
-        _pages[context
-            .select((SchedulingViewModel viewModel) => viewModel.currentIndex)],
-      ],
-    );
+    return _pages[context
+        .select((SchedulingViewModel viewModel) => viewModel.currentIndex)];
   }
 
   @override
