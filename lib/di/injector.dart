@@ -2,10 +2,12 @@ import 'package:carrier/data/repository/home_repository.dart';
 import 'package:carrier/data/repository/scheduling_repository_imp.dart';
 import 'package:carrier/data/repository/splash_repository_imp.dart';
 import 'package:carrier/data/repository/user_repository_imp.dart';
+import 'package:carrier/data/repository/waybill_repository_imp.dart';
 import 'package:carrier/domain/repository/home_repository.dart';
 import 'package:carrier/domain/repository/scheduling_repository.dart';
 import 'package:carrier/domain/repository/splash_repository.dart';
 import 'package:carrier/domain/repository/user_repository.dart';
+import 'package:carrier/domain/repository/waybill_repository.dart';
 
 class Injector {
   static final Injector singleton = Injector.internal();
@@ -30,5 +32,9 @@ class Injector {
 
   SchedulingRepository provideSchedulingRepository() {
     return SchedulingRepositoryImp.internal();
+  }
+
+  WaybillRepository provideWaybillRepository() {
+    return WaybillRepositoryImp.internal();
   }
 }

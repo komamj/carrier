@@ -13,26 +13,11 @@ class SchedulingPage extends StatefulWidget {
 }
 
 class _SchedulingPageState extends State<SchedulingPage> {
-  late TextEditingController _searchController;
-
   final _pages = [ToBeDeterminedPage(), InTheSchedulingPage(), InTransitPage()];
-
-  @override
-  void initState() {
-    super.initState();
-
-    _searchController = TextEditingController();
-  }
 
   @override
   Widget build(BuildContext context) {
     return _pages[context
         .select((SchedulingViewModel viewModel) => viewModel.currentIndex)];
-  }
-
-  @override
-  void dispose() {
-    _searchController.dispose();
-    super.dispose();
   }
 }

@@ -1,4 +1,4 @@
-import 'package:carrier/presentation/login/user_view_model.dart';
+import 'package:carrier/presentation/user/user_view_model.dart';
 import 'package:carrier/presentation/util/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

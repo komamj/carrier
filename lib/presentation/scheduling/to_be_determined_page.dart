@@ -38,12 +38,18 @@ class _ToBeDeterminedPageState extends State<ToBeDeterminedPage> {
           padding: EdgeInsets.all(16),
           child: TextField(
             controller: _searchController,
+            maxLines: 1,
+            autofocus: false,
+            keyboardType: TextInputType.text,
+            textInputAction: TextInputAction.search,
             decoration: InputDecoration(
-              prefixIcon: Icon(Icons.search),
+              prefixIcon: const Icon(Icons.search),
+              contentPadding: const EdgeInsets.all(0),
               filled: true,
               hintText: "搜索项目",
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(32),
+              ),
             ),
           ),
         ),
