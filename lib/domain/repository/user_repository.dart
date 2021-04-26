@@ -1,5 +1,5 @@
 abstract class UserRepository {
-  void login(String userName, String password);
+  Future login(String phoneNumber, String password);
 
   Future<bool> isLogin();
 }
