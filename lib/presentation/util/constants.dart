@@ -4,7 +4,6 @@ class Constants {
 
   static const KEY_USER = "key_user";
 
-
   static const String splashPage = "/splash"; // 启动页
   static const String loginPage = "/login"; // 登录页
   static const String homePage = "/home"; // 主界面
@@ -13,6 +12,11 @@ class Constants {
   static const String waybillDetailPage = "/scheduling/waybill"; // 调度在途运单页
   static const String carSchedulingPage = "/scheduling/car"; // 选择车辆页
   static const String driverSchedulingPage = "/scheduling/driver"; // 选择司机页
+  static const String usersPage = "/mine/users"; // 修改用户信息
+  static const String editUserPhonePage =
+      "/mine/users/edit_user_phone"; // 修改用户信息->更换手机号
+  static const String editUserNewPhonePage =
+      "/mine/users/edit_user_new_phone"; // 修改用户信息->更换手机号-->输入新手机号
   static const String settingsPage = "/mine/settings"; // 设置页
   static const String changePasswordPage = "/mine/changePassword"; // 修改密码页
   static const String feedbackPage = "/mine/feedback"; // 反馈页
