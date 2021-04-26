@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:carrier/presentation/util/validator.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 // import 'package:provider/provider.dart';
@@ -13,7 +14,7 @@ class EditUserNewPhonePage extends StatefulWidget {
 
 class _EditUserNewPhonePageState extends State<EditUserNewPhonePage> {
   late Timer _timer;
-  int _currentTimer = 60;
+  int _currentTimer = 0;
 
   String _smsBtnName = "获取验证码";
 
@@ -30,7 +31,8 @@ class _EditUserNewPhonePageState extends State<EditUserNewPhonePage> {
     super.initState();
     _phoneController.addListener(() {
       print(_phoneController.text);
-      if (_phoneController.text.length == 11) {
+      if (_phoneController.text.length == 11 &&
+          isMobilePhoneNumber(_phoneController.text)) {
         isGoSendSms = true;
       } else {
         isGoSendSms = false;
@@ -232,7 +234,9 @@ class _EditUserNewPhonePageState extends State<EditUserNewPhonePage> {
 
   @override
   void dispose() {
-    _timer.cancel();
+    if (_currentTimer > 0) {
+      _timer.cancel();
+    }
     super.dispose();
   }
 }

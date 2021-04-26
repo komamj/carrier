@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-/// 手机号正则表达式->true匹配
+/// 手机号正则表达式->true匹配 (13\d|14[579]|15[^4\D]|17[^49\D]|18\d)\d{8}  (0|86|17951)?(1[0-9][0-9])[0-9]{8}
 bool isMobilePhoneNumber(String value) {
-  RegExp mobile = new RegExp(r"(0|86|17951)?(1[0-9][0-9])[0-9]{8}");
+  RegExp mobile = new RegExp(r"(13\d|14[579]|15[^4\D]|17[^49\D]|18\d)\d{8}");
   return mobile.hasMatch(value);
 }
 

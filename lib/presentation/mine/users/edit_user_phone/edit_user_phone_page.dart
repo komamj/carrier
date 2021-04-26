@@ -13,7 +13,7 @@ class EditUserPhonePage extends StatefulWidget {
 
 class _EditUserPhonePageState extends State<EditUserPhonePage> {
   late Timer _timer;
-  int _currentTimer = 60;
+  int _currentTimer = 0;
 
   String _smsBtnName = "获取验证码";
 
@@ -122,7 +122,7 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
                 SizedBox(width: 20),
                 InkWell(
                   onTap: () {
-                    if (_currentTimer <= 0 || _currentTimer == 60) {
+                    if (_currentTimer <= 0) {
                       this._time();
                     }
                   },
@@ -206,7 +206,9 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
 
   @override
   void dispose() {
-    _timer.cancel();
+    if (_currentTimer > 0) {
+      _timer.cancel();
+    }
     super.dispose();
   }
 }
