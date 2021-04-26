@@ -5,8 +5,9 @@ import 'package:carrier/presentation/login/login_page.dart';
 import 'package:carrier/presentation/mine/agreement/platform_agreement_page.dart';
 import 'package:carrier/presentation/mine/feedback/feedback_page.dart';
 import 'package:carrier/presentation/mine/resource/resource_management_page.dart';
-import 'package:carrier/presentation/mine/settings/change_password_page.dart';
 import 'package:carrier/presentation/mine/settings/settings_page.dart';
+import 'package:carrier/presentation/mine/settings/change_password/change_password_page.dart';
+import 'package:carrier/presentation/mine/settings/about_us/about_us_page.dart';
 import 'package:carrier/presentation/mine/users/users_page.dart';
 import 'package:carrier/presentation/mine/users/edit_user_phone/edit_user_phone_page.dart';
 import 'package:carrier/presentation/mine/users/edit_user_phone/edit_user_new_phone_page.dart';
@@ -62,6 +63,7 @@ class App extends StatelessWidget {
           Constants.editUserNewPhonePage: (context) => EditUserNewPhonePage(),
           Constants.settingsPage: (context) => SettingsPage(),
           Constants.changePasswordPage: (context) => ChangePasswordPage(),
+          Constants.aboutUsPage: (context) => AboutUsPage(),
           Constants.feedbackPage: (context) => FeedbackPage(),
           Constants.agreementPage: (context) => PlatformAgreementPage(),
           Constants.resourcePage: (context) => ResourceManagementPage(),
