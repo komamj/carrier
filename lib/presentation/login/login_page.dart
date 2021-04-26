@@ -138,8 +138,12 @@ class _LoginPageState extends State<LoginPage> {
                           child: Text("登录"),
                           padding: EdgeInsets.symmetric(vertical: 16),
                         ),
-                        onPressed: () => context.read<UserViewModel>().login(
-                            _userNameController.text, _passwordController.text)
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(
+                              context, Constants.homePage);
+                        }
+                        /*onPressed: () => context.read<UserViewModel>().login(
+                            _userNameController.text, _passwordController.text)*/
                         /*context.select(
                           ((UserViewModel viewModel) => viewModel.isValid
                               ? () => viewModel.login(_userNameController.text,

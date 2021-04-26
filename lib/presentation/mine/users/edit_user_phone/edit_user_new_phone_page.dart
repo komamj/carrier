@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 
 import '../../../util/constants.dart';
 
@@ -49,8 +49,18 @@ class _EditUserNewPhonePageState extends State<EditUserNewPhonePage> {
     });
   }
 
+  _showToast() {
+    Fluttertoast.showToast(
+        msg: '短信验证码已发送，请注意查收',
+        gravity: ToastGravity.BOTTOM,
+        toastLength: Toast.LENGTH_SHORT,
+        timeInSecForIosWeb: 1,
+        textColor: Colors.white,
+        fontSize: 16.0);
+  }
+
   _time() {
-    //Fluttertoast.showToast(msg: '短信验证码已发送，请注意查收', gravity: ToastGravity.CENTER);
+    _showToast();
 
     _currentTimer = 60;
 
@@ -218,7 +228,6 @@ class _EditUserNewPhonePageState extends State<EditUserNewPhonePage> {
         ),
       ),
     );
-    ;
   }
 
   @override

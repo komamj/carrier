@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 
 import '../../../util/constants.dart';
 
@@ -38,11 +38,19 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
     });
   }
 
+  _showToast() {
+    Fluttertoast.showToast(
+        msg: '短信验证码已发送，请注意查收',
+        gravity: ToastGravity.BOTTOM,
+        toastLength: Toast.LENGTH_SHORT,
+        timeInSecForIosWeb: 1,
+        textColor: Colors.white,
+        fontSize: 16.0);
+  }
+
   _time() {
-    //Fluttertoast.showToast(msg: '短信验证码已发送，请注意查收', gravity: ToastGravity.CENTER);
-
     _currentTimer = 60;
-
+    _showToast();
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       _currentTimer--;
       if (_currentTimer <= 0) {
@@ -114,14 +122,13 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
                 SizedBox(width: 20),
                 InkWell(
                   onTap: () {
-                    if (_currentTimer <= 0) {
+                    if (_currentTimer <= 0 || _currentTimer == 60) {
                       this._time();
                     }
                   },
                   child: Text(
                     _smsBtnName,
-                    style: TextStyle(
-                        color: isGo ? Colors.blueAccent : Colors.grey),
+                    style: TextStyle(color: Colors.blueAccent),
                   ),
                 )
               ],
@@ -195,7 +202,6 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
         ),
       ),
     );
-    ;
   }
 
   @override

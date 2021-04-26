@@ -38,7 +38,9 @@ class _SettingsPageState extends State<SettingsPage> {
         child: InkWell(
           highlightColor: Color.fromRGBO(243, 243, 243, 0.6),
           onTap: () {
-            //Navigator.pushNamed(context, pageName);
+            //Navigator.pushNamed(context, Constants.loginPage);
+            Navigator.of(context).pushNamedAndRemoveUntil(
+                Constants.loginPage, ModalRoute.withName(Constants.loginPage));
           },
           child: Container(
               child: Padding(
@@ -75,11 +77,11 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             this._listItemIcon("修改密码", Constants.changePasswordPage),
             SizedBox(
-              height: 1.0,
+              height: 2.0,
             ),
             this._listItemIcon("关于我们", Constants.aboutUsPage),
             SizedBox(
-              height: 1.0,
+              height: 2.0,
             ),
             this._listItemText("退出"),
           ],

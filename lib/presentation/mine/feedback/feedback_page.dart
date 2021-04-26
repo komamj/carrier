@@ -18,6 +18,5 @@ class _FeedbackPageState extends State<FeedbackPage> {
         centerTitle: true,
       ),
     );
-    ;
   }
 }
