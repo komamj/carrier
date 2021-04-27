@@ -46,13 +46,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: _appbar(context.watch<HomeViewModel>().currentIndex),
-        centerTitle: true,
-        brightness: Brightness.light,
-        backgroundColor: Colors.white,
-        elevation: 0,
-      ),
+      appBar: _appbar(context.watch<HomeViewModel>().currentIndex),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: bottomNavigationBarItems,
