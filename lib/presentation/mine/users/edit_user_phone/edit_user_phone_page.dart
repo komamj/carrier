@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 // import 'package:provider/provider.dart';
 
 import '../../../util/constants.dart';
@@ -39,13 +38,11 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
   }
 
   _showToast() {
-    Fluttertoast.showToast(
-        msg: '短信验证码已发送，请注意查收',
-        gravity: ToastGravity.BOTTOM,
-        toastLength: Toast.LENGTH_SHORT,
-        timeInSecForIosWeb: 1,
-        textColor: Colors.white,
-        fontSize: 16.0);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text('短信验证码已发送，请注意查收。'),
+      ),
+    );
   }
 
   _time() {
@@ -154,6 +151,7 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
                   padding: EdgeInsets.symmetric(vertical: 16),
                 ),
                 onPressed: () {
+                  _showToast();
                   _closekeyboard();
                   if (isGo) {
                     Navigator.pushNamed(

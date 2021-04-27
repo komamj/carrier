@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 import '../util/constants.dart';
 
 class MinePage extends StatefulWidget {
@@ -94,31 +94,47 @@ class _MinePageState extends State<MinePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
-                  child: Column(
-                    children: [
-                      Image.network(
-                        'https://pics7.baidu.com/feed/a8773912b31bb051fb37de05c78e64b24bede083.jpeg?token=f02d22e51399a01c6c239e6247cec44f',
-                        width: 50,
+                  child: Material(
+                    color: Colors.white,
+                    child: InkWell(
+                      child: Column(
+                        children: [
+                          Image.network(
+                            'https://pics7.baidu.com/feed/a8773912b31bb051fb37de05c78e64b24bede083.jpeg?token=f02d22e51399a01c6c239e6247cec44f',
+                            width: 50,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text("车辆管理"),
+                        ],
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text("车辆管理"),
-                    ],
+                      onTap: () {
+                        Navigator.pushNamed(context, Constants.resourcePage);
+                      },
+                    ),
                   ),
                 ),
                 Expanded(
-                  child: Column(
-                    children: [
-                      Image.network(
-                        'https://pics7.baidu.com/feed/a8773912b31bb051fb37de05c78e64b24bede083.jpeg?token=f02d22e51399a01c6c239e6247cec44f',
-                        width: 50,
+                  child: Material(
+                    color: Colors.white,
+                    child: InkWell(
+                      child: Column(
+                        children: [
+                          Image.network(
+                            'https://pics7.baidu.com/feed/a8773912b31bb051fb37de05c78e64b24bede083.jpeg?token=f02d22e51399a01c6c239e6247cec44f',
+                            width: 50,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text("司机管理"),
+                        ],
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text("司机管理"),
-                    ],
+                      onTap: () {
+                        Navigator.pushNamed(context, Constants.resourcePage);
+                      },
+                    ),
                   ),
                 )
               ],

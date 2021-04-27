@@ -22,6 +22,7 @@ class Constants {
       "/mine/settings/change_password"; // 设置页->修改密码
   static const String aboutUsPage = "/mine/settings/about_us"; // 设置页->关于我们
   static const String feedbackPage = "/mine/feedback"; // 反馈页
-  static const String resourcePage = "/mine/resource"; // 资源管理页
+  static const String resourcePage =
+      "/mine/resource/resource_management"; // 资源管理页
   static const String agreementPage = "/mine/agreement"; // 平台协议页
 }

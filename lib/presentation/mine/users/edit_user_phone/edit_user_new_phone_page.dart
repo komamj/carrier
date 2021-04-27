@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:carrier/presentation/util/validator.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 // import 'package:provider/provider.dart';
 
 import '../../../util/constants.dart';
@@ -52,13 +51,24 @@ class _EditUserNewPhonePageState extends State<EditUserNewPhonePage> {
   }
 
   _showToast() {
-    Fluttertoast.showToast(
-        msg: '短信验证码已发送，请注意查收',
-        gravity: ToastGravity.BOTTOM,
-        toastLength: Toast.LENGTH_SHORT,
-        timeInSecForIosWeb: 1,
-        textColor: Colors.white,
-        fontSize: 16.0);
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      onVisible: () {
+        print("显示SnackBar");
+      },
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(50))),
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Color.fromRGBO(0, 0, 0, 0.6),
+      content: Text('断网了？'),
+      // action: SnackBarAction(
+      //   ///配置action的字体颜色为绿色
+      //   textColor: Colors.green,
+      //   label: '点击重试',
+      //   onPressed: () {
+      //     //执行相关逻辑
+      //   },
+      // ),
+    ));
   }
 
   _time() {
