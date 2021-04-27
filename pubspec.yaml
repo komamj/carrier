@@ -32,7 +32,6 @@ dependencies:
   webview_flutter: ^2.0.4 # 网页加载
   amap_flutter_map: ^2.0.1 # 高德地图
   ota_update: ^3.0.1
-  license_plate_number: ^2.0.0 #车牌号键盘输入
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

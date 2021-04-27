@@ -6,13 +6,16 @@ class MineViewModel extends BaseViewModel {
 
   int get currentIndex => _currentIndex;
 
+  bool _isFirstLoading = true;
+
+  bool get firstLoading => _isFirstLoading;
+
   void updateCurrentIndex(int index) {
     if (_currentIndex != index) {
       _currentIndex = index;
       notifyListeners();
     }
 
-    debugPrint("HomeViewModel updateCurrentIndex index:$index");
+    debugPrint("MineViewModel updateCurrentIndex currentIndex:$currentIndex");
   }
-
 }

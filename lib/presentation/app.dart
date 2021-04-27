@@ -3,6 +3,7 @@ import 'package:carrier/presentation/home/home_page.dart';
 import 'package:carrier/presentation/home/home_view_model.dart';
 import 'package:carrier/presentation/mine/agreement/platform_agreement_page.dart';
 import 'package:carrier/presentation/mine/feedback/feedback_page.dart';
+import 'package:carrier/presentation/mine/mine_view_model.dart';
 import 'package:carrier/presentation/mine/resource/resource_management_page.dart';
 import 'package:carrier/presentation/mine/resource/resource_management_view_model.dart';
 import 'package:carrier/presentation/mine/settings/settings_page.dart';
@@ -72,10 +73,14 @@ class App extends StatelessWidget {
           Constants.aboutUsPage: (context) => AboutUsPage(),
           Constants.feedbackPage: (context) => FeedbackPage(),
           Constants.agreementPage: (context) => PlatformAgreementPage(),
-          Constants.resourcePage: (context) => MultiProvider(providers: [
-                ChangeNotifierProvider(
-                    create: (_) => ResourceManagementViewModel())
-              ]),
+          Constants.resourcePage: (context) => MultiProvider(
+                providers: [
+                  ChangeNotifierProvider(
+                    create: (context) => ResourceManagementViewModel(),
+                  )
+                ],
+                child: ResourceManagementPage(),
+              ),
         },
         initialRoute: Constants.splashPage,
       ),

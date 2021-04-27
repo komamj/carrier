@@ -13,7 +13,7 @@ class ResourceManagementViewModel extends BaseViewModel {
   void updateCurrentIndex(int index) {
     if (_currentIndex != index) {
       _currentIndex = index;
-      notifyListeners();
+      //notifyListeners();
     }
 
     debugPrint(

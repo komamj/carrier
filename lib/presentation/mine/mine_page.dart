@@ -1,3 +1,5 @@
+import 'package:carrier/presentation/mine/mine_view_model.dart';
+import 'package:carrier/presentation/mine/resource/resource_management_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -110,7 +112,11 @@ class _MinePageState extends State<MinePage> {
                         ],
                       ),
                       onTap: () {
-                        Navigator.pushNamed(context, Constants.resourcePage);
+                        // context.select((MineViewModel viewModel) =>
+                        //     viewModel.updateCurrentIndex(1));
+
+                        Navigator.pushNamed(context, Constants.resourcePage,
+                            arguments: {"pageType": 0});
                       },
                     ),
                   ),
@@ -132,7 +138,8 @@ class _MinePageState extends State<MinePage> {
                         ],
                       ),
                       onTap: () {
-                        Navigator.pushNamed(context, Constants.resourcePage);
+                        Navigator.pushNamed(context, Constants.resourcePage,
+                            arguments: {"pageType": 1});
                       },
                     ),
                   ),
