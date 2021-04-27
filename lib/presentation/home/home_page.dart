@@ -27,25 +27,17 @@ class _HomePageState extends State<HomePage> {
 
   final _pages = [SchedulingPage(), WaybillPage(), MinePage()];
 
-  //待完成泛型 类别验证
-  _appbar(int currentIndex) {
-    if (currentIndex != 2) {
-      return AppBar(
-        title: _titles[currentIndex],
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: _titles[context.watch<HomeViewModel>().currentIndex],
         centerTitle: true,
         brightness: Brightness.light,
         backgroundColor: Colors.white,
         elevation: 0,
-      );
-    } else {
-      return null;
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _appbar(context.watch<HomeViewModel>().currentIndex),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: bottomNavigationBarItems,

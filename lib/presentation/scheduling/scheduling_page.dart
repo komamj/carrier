@@ -13,43 +13,11 @@ class SchedulingPage extends StatefulWidget {
 }
 
 class _SchedulingPageState extends State<SchedulingPage> {
-  late TextEditingController _searchController;
-
   final _pages = [ToBeDeterminedPage(), InTheSchedulingPage(), InTransitPage()];
 
   @override
-  void initState() {
-    super.initState();
-
-    _searchController = TextEditingController();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.all(16),
-          child: TextField(
-            controller: _searchController,
-            decoration: InputDecoration(
-              prefixIcon: Icon(Icons.search),
-              filled: true,
-              hintText: "搜索项目",
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
-            ),
-          ),
-        ),
-        _pages[context
-            .select((SchedulingViewModel viewModel) => viewModel.currentIndex)],
-      ],
-    );
-  }
-
-  @override
-  void dispose() {
-    _searchController.dispose();
-    super.dispose();
+    return _pages[context
+        .select((SchedulingViewModel viewModel) => viewModel.currentIndex)];
   }
 }
