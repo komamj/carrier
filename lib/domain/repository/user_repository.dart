@@ -1,5 +1,7 @@
+import 'package:carrier/domain/model/user.dart';
+
 abstract class UserRepository {
-  Future login(String phoneNumber, String password);
+  Future<User?> login(String phoneNumber, String password);
 
   Future<bool> isLogin();
 }

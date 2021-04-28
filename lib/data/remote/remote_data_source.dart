@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:carrier/data/entities/user_response.dart';
 import 'package:carrier/domain/model/count.dart';
+import 'package:carrier/domain/model/user.dart';
 import 'package:carrier/presentation/util/constants.dart';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
@@ -31,11 +31,11 @@ abstract class RemoteDataSource {
 
   void _addHeaders() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    String? user = sharedPreferences.getString(Constants.KEY_USER);
-    if (user != null) {
-      UserResponse userResponse = UserResponse.fromJson(json.decode(user));
+    String? result = sharedPreferences.getString(Constants.KEY_USER);
+    if (result != null) {
+      User user = User.fromJson(json.decode(result));
       client.options.headers = {
-        "Authorization": "${userResponse.tokenType} ${userResponse.accessToken}"
+        "Authorization": "${user.tokenType} ${user.accessToken}"
       };
     }
   }
@@ -46,5 +46,5 @@ abstract class RemoteDataSource {
 
   Future<Count> getCount();
 
-  Future<UserResponse?> login(String phoneNumber, String password);
+  Future<User?> login(String phoneNumber, String password);
 }

@@ -1,10 +1,11 @@
 import 'dart:core';
 
 import 'package:carrier/data/entities/user_request.dart';
-import 'package:carrier/data/entities/user_response.dart';
 import 'package:carrier/data/remote/remote_data_source.dart';
 import 'package:carrier/domain/model/count.dart';
+import 'package:carrier/domain/model/user.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 
 class RemoteDataSourceImp extends RemoteDataSource {
   static const _count = "/v1/appHomePage/total"; // 首页各数量
@@ -41,13 +42,21 @@ class RemoteDataSourceImp extends RemoteDataSource {
   }
 
   @override
-  Future<UserResponse?> login(String phoneNumber, String password) async {
+  Future<User?> login(String phoneNumber, String password) async {
+    User? user;
     UserRequest userRequest =
         UserRequest(phoneNumber: phoneNumber, password: password);
     Response response = await client.post(_login, data: userRequest.toJson());
     if (ok(response)) {
-      dynamic result = await response.data;
-      return UserResponse.fromJson(result);
+      dynamic result = response.data;
+      user = User.fromJson(result);
+
+      client.options.headers = {
+        "Authorization": "${user.tokenType} ${user.accessToken}"
+      };
     }
+    return user;
   }
+
+  updatePassword() {}
 }

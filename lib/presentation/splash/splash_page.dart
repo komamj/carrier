@@ -46,22 +46,41 @@ class _SplashPageState extends State<SplashPage> {
     return WillPopScope(
         child: Scaffold(
           body: Stack(
-            alignment: AlignmentDirectional.topEnd,
             children: [
               Container(
+                alignment: Alignment.bottomCenter,
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         fit: BoxFit.cover,
                         image: AssetImage("assets/images/bg_splash.png"))),
               ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 48, 16, 0),
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.grey)),
-                  onPressed: _skip,
-                  child: Text(_currentTimer <= 0 ? "跳过" : "$_currentTimer 跳过"),
+              Container(
+                alignment: Alignment.topRight,
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(0, 48, 16, 0),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.grey)),
+                    onPressed: _skip,
+                    child:
+                        Text(_currentTimer <= 0 ? "跳过" : "$_currentTimer 跳过"),
+                  ),
+                ),
+              ),
+              Container(
+                alignment: Alignment.bottomCenter,
+                margin: EdgeInsets.only(bottom: 32),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text("E键托付 使命必达"),
+                    Padding(padding: EdgeInsets.symmetric(vertical: 2)),
+                    Text(
+                      "v1.0.0",
+                    )
+                  ],
                 ),
               ),
               /* WebView(

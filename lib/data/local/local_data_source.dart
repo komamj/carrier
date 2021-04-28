@@ -1,9 +1,9 @@
-import 'package:carrier/data/entities/user_response.dart';
+import 'package:carrier/domain/model/user.dart';
 
 abstract class LocalDataSource {
   Future<bool> isLogin();
 
-  Future<bool> saveUser(UserResponse userResponse);
+  Future<bool> saveUser(User user);
 
-  Future<UserResponse?> getUser();
+  Future<User?> getUser();
 }

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:carrier/data/entities/user_response.dart';
 import 'package:carrier/data/local/local_data_source.dart';
+import 'package:carrier/domain/model/user.dart';
 import 'package:carrier/presentation/util/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -26,14 +26,13 @@ class LocalDataSourceImp extends LocalDataSource {
   }
 
   @override
-  Future<bool> saveUser(UserResponse userResponse) async {
+  Future<bool> saveUser(User user) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    return sharedPreferences.setString(
-        Constants.KEY_USER, json.encode(userResponse));
+    return sharedPreferences.setString(Constants.KEY_USER, json.encode(user));
   }
 
   @override
-  Future<UserResponse?> getUser() async {
+  Future<User?> getUser() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String? user = sharedPreferences.getString(Constants.KEY_USER);
     if (user == null) {

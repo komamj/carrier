@@ -138,10 +138,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: Text("登录"),
                           padding: EdgeInsets.symmetric(vertical: 16),
                         ),
-                        onPressed: () {
-                          Navigator.pushReplacementNamed(
-                              context, Constants.homePage);
-                        }
+                        onPressed: _login,
                         /*onPressed: () => context.read<UserViewModel>().login(
                             _userNameController.text, _passwordController.text)*/
                         /*context.select(
@@ -150,7 +147,6 @@ class _LoginPageState extends State<LoginPage> {
                                   _passwordController.text)
                               : null),
                         )*/
-                        ,
                       ),
                     ),
                   ],
@@ -188,5 +184,21 @@ class _LoginPageState extends State<LoginPage> {
     } else {
       Navigator.of(context).pop();
     }
+  }
+
+  _login() {
+    context
+        .read<UserViewModel>()
+        .login(_userNameController.text, _passwordController.text)
+        .then((result) {
+      if (result) {
+        Navigator.pushReplacementNamed(context, Constants.homePage);
+        debugPrint("login successful");
+      } else {
+        debugPrint("login failed");
+      }
+    }).catchError((error) {
+      debugPrint("login error $error");
+    });
   }
 }
