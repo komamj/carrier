@@ -3,6 +3,19 @@ import 'package:carrier/presentation/home/home_page.dart';
 import 'package:carrier/presentation/home/home_view_model.dart';
 import 'package:carrier/presentation/mine/agreement/platform_agreement_page.dart';
 import 'package:carrier/presentation/mine/feedback/feedback_page.dart';
+import 'package:carrier/presentation/mine/resource/car_add_bind_page.dart';
+import 'package:carrier/presentation/mine/resource/car_add_page.dart';
+import 'package:carrier/presentation/mine/resource/car_del_page.dart';
+import 'package:carrier/presentation/mine/resource/car_edit_page.dart';
+import 'package:carrier/presentation/mine/resource/driver_add_page.dart';
+import 'package:carrier/presentation/mine/resource/driver_add_search_page.dart';
+import 'package:carrier/presentation/mine/resource/driver_del_page.dart';
+import 'package:carrier/presentation/mine/resource/driver_edit_page.dart';
+import 'package:carrier/presentation/mine/resource/driver_info_bank_card_add_page.dart';
+import 'package:carrier/presentation/mine/resource/driver_info_bank_card_agreement_page.dart';
+import 'package:carrier/presentation/mine/resource/driver_info_bank_card_info_page.dart';
+import 'package:carrier/presentation/mine/resource/driver_info_bank_card_page.dart';
+import 'package:carrier/presentation/mine/resource/driver_info_page.dart';
 import 'package:carrier/presentation/mine/resource/resource_management_page.dart';
 import 'package:carrier/presentation/mine/resource/resource_management_view_model.dart';
 import 'package:carrier/presentation/mine/settings/settings_page.dart';
@@ -80,6 +93,23 @@ class App extends StatelessWidget {
                 ],
                 child: ResourceManagementPage(),
               ),
+          Constants.carAddPage: (context) => CarAddPage(),
+          Constants.carAddBindPage: (context) => CarAddBindPage(),
+          Constants.carDelPage: (context) => CarDelPage(),
+          Constants.carEditPage: (context) => CarEditPage(),
+          Constants.driverAddPage: (context) => DriverAddPage(),
+          Constants.driverAddSearchPage: (context) => DriverAddSearchPage(),
+          Constants.driverDelPage: (context) => DriverDelPage(),
+          Constants.driverEditPage: (context) => DriverEditPage(),
+          Constants.driverInfoPage: (context) => DriverInfoPage(),
+          Constants.driverInfoBankCardPage: (context) =>
+              DriverInfoBankCardPage(),
+          Constants.driverInfoBankAddCardPage: (context) =>
+              DriverInfoBankCardAddPage(),
+          Constants.driverInfoBankCardAgreementPage: (context) =>
+              DriverInfoBankCardAgreementPage(),
+          Constants.driverInfoBankCardInfoPage: (context) =>
+              DriverInfoBankCardInfoPage()
         },
         initialRoute: Constants.splashPage,
       ),

@@ -119,40 +119,45 @@ class _CarManagementPageState extends State<CarManagementPage> {
   _carItem(item) {
     return Material(
         color: Colors.white,
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 15),
-          child: Flex(
-            direction: Axis.horizontal,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: 60,
-                height: 60,
-                child: Image.network(
-                  "https://pics7.baidu.com/feed/a8773912b31bb051fb37de05c78e64b24bede083.jpeg?token=f02d22e51399a01c6c239e6247cec44f",
+        child: InkWell(
+          onTap: () {
+            // Navigator.pushNamed(context, routeName);
+          },
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 15),
+            child: Flex(
+              direction: Axis.horizontal,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 60,
+                  height: 60,
+                  child: Image.network(
+                    "https://pics7.baidu.com/feed/a8773912b31bb051fb37de05c78e64b24bede083.jpeg?token=f02d22e51399a01c6c239e6247cec44f",
+                  ),
                 ),
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    child: Text(
-                      item["title"],
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                    ),
-                  )),
-              Container(
-                width: 40,
-                child: Text(
-                  "空闲",
-                  textAlign: TextAlign.right,
-                  style: TextStyle(color: Colors.grey),
+                SizedBox(
+                  width: 20,
                 ),
-              )
-            ],
+                Expanded(
+                    flex: 1,
+                    child: Container(
+                      child: Text(
+                        item["title"],
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w600),
+                      ),
+                    )),
+                Container(
+                  width: 40,
+                  child: Text(
+                    "空闲",
+                    textAlign: TextAlign.right,
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                )
+              ],
+            ),
           ),
         ));
   }
