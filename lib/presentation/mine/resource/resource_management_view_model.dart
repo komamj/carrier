@@ -10,10 +10,10 @@ class ResourceManagementViewModel extends BaseViewModel {
 
   bool get firstLoading => _isFirstLoading;
 
-  void updateCurrentIndex(int index) {
+  void updateCurrentIndex(int index, bool isNotify) {
     if (_currentIndex != index) {
       _currentIndex = index;
-      //notifyListeners();
+      if (isNotify) notifyListeners();
     }
 
     debugPrint(

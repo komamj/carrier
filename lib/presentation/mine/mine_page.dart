@@ -1,8 +1,5 @@
-import 'package:carrier/presentation/mine/mine_view_model.dart';
-import 'package:carrier/presentation/mine/resource/resource_management_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '../util/constants.dart';
 
 class MinePage extends StatefulWidget {
