@@ -1,4 +1,5 @@
 import 'package:carrier/presentation/scheduling/scheduling_view_model.dart';
+import 'package:carrier/presentation/util/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -76,6 +77,7 @@ class _ToBeDeterminedPageState extends State<ToBeDeterminedPage> {
                                   child: Text(
                                     "项目名称西南水泥项目名称西南水泥项目名称西南水泥项目名称西南水泥项目名称西南水泥项目名称西南水泥项目名称西南水泥",
                                     overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(),
                                     maxLines: 1,
                                   ),
                                 ),
@@ -148,7 +150,10 @@ class _ToBeDeterminedPageState extends State<ToBeDeterminedPage> {
                                 ),
                                 Expanded(
                                   child: ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.pushNamed(context,
+                                          Constants.toBeDeterminedDetailPage);
+                                    },
                                     child: Text("调度"),
                                   ),
                                 ),

@@ -7,7 +7,7 @@ class Constants {
   static const String splashPage = "/splash"; // 启动页
   static const String loginPage = "/login"; // 登录页
   static const String homePage = "/home"; // 主界面
-  static const String reservationsDetailPage =
+  static const String toBeDeterminedDetailPage =
       "/scheduling/reservations"; // 预约单详情页
   static const String waybillDetailPage = "/scheduling/waybill"; // 调度在途运单页
   static const String carSchedulingPage = "/scheduling/car"; // 选择车辆页

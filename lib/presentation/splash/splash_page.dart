@@ -97,11 +97,13 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void _skip() {
-    if (context.read<UserViewModel>().isLogin()) {
-      Navigator.pushReplacementNamed(context, Constants.homePage);
-    } else {
-      Navigator.pushReplacementNamed(context, Constants.loginPage);
-    }
+    context.read<UserViewModel>().isLogin().then((isLogin) {
+      if (isLogin) {
+        Navigator.pushReplacementNamed(context, Constants.homePage);
+      } else {
+        Navigator.pushReplacementNamed(context, Constants.loginPage);
+      }
+    });
   }
 
   @override

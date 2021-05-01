@@ -25,6 +25,7 @@ import 'package:carrier/presentation/mine/users/users_page.dart';
 import 'package:carrier/presentation/mine/users/edit_user_phone/edit_user_phone_page.dart';
 import 'package:carrier/presentation/mine/users/edit_user_phone/edit_user_new_phone_page.dart';
 import 'package:carrier/presentation/scheduling/scheduling_view_model.dart';
+import 'package:carrier/presentation/scheduling/to_be_determined_detail_page.dart';
 import 'package:carrier/presentation/splash/splash_page.dart';
 import 'package:carrier/presentation/splash/splash_view_model.dart';
 import 'package:carrier/presentation/user/login_page.dart';
@@ -77,6 +78,8 @@ class App extends StatelessWidget {
                 ],
                 child: HomePage(),
               ),
+          Constants.toBeDeterminedDetailPage: (context) =>
+              ToBeDeterminedDetailPage(),
           Constants.usersPage: (context) => UsersPage(),
           Constants.editUserPhonePage: (context) => EditUserPhonePage(),
           Constants.editUserNewPhonePage: (context) => EditUserNewPhonePage(),

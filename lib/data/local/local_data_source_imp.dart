@@ -17,11 +17,11 @@ class LocalDataSourceImp extends LocalDataSource {
   @override
   Future<bool> isLogin() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    bool? result = sharedPreferences.getBool("key");
+    String? result = sharedPreferences.getString(Constants.KEY_USER);
     if (result == null) {
       return false;
     } else {
-      return result;
+      return true;
     }
   }
 

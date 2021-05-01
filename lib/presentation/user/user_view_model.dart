@@ -37,9 +37,8 @@ class UserViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  bool isLogin() {
-    /// repository.isLogin();
-    return false;
+  Future<bool> isLogin() async {
+    return await repository.isLogin();
   }
 
   void checkUserName(String? userName) {}
