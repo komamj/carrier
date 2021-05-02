@@ -1,5 +1,6 @@
 import 'package:carrier/presentation/util/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ToBeDeterminedDetailPage extends StatefulWidget {
   @override
@@ -8,9 +9,12 @@ class ToBeDeterminedDetailPage extends StatefulWidget {
 }
 
 class _ToBeDeterminedDetailPageState extends State<ToBeDeterminedDetailPage> {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text("预约单详情"),
         centerTitle: true,
@@ -91,7 +95,15 @@ class _ToBeDeterminedDetailPageState extends State<ToBeDeterminedDetailPage> {
                       IconButton(
                         iconSize: 18,
                         icon: Icon(Icons.content_copy),
-                        onPressed: () {},
+                        onPressed: () async {
+                          await Clipboard.setData(
+                              ClipboardData(text: "201213213213123123"));
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: const Text('复制成功!'),
+                            ),
+                          );
+                        },
                       ),
                     ],
                   ),
