@@ -30,6 +30,7 @@ import 'package:carrier/presentation/splash/splash_page.dart';
 import 'package:carrier/presentation/splash/splash_view_model.dart';
 import 'package:carrier/presentation/user/login_page.dart';
 import 'package:carrier/presentation/util/constants.dart';
+import 'package:carrier/presentation/waybill/new_waybill_page.dart';
 import 'package:carrier/presentation/waybill/waybill_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -80,6 +81,7 @@ class App extends StatelessWidget {
               ),
           Constants.toBeDeterminedDetailPage: (context) =>
               ToBeDeterminedDetailPage(),
+          Constants.newWaybillPage: (context) => NewWaybillPage(),
           Constants.usersPage: (context) => UsersPage(),
           Constants.editUserPhonePage: (context) => EditUserPhonePage(),
           Constants.editUserNewPhonePage: (context) => EditUserNewPhonePage(),

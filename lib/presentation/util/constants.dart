@@ -12,6 +12,7 @@ class Constants {
   static const String waybillDetailPage = "/scheduling/waybill"; // 调度在途运单页
   static const String carSchedulingPage = "/scheduling/car"; // 选择车辆页
   static const String driverSchedulingPage = "/scheduling/driver"; // 选择司机页
+  static const String newWaybillPage = "/waybill/new"; // 新建运单页
   static const String usersPage = "/mine/users"; // 修改用户信息
   static const String editUserPhonePage =
       "/mine/users/edit_user_phone"; // 修改用户信息->更换手机号

@@ -39,33 +39,6 @@ class _ToBeDeterminedDetailPageState extends State<ToBeDeterminedDetailPage> {
     );
   }
 
-  Card buildAction() {
-    return Card(
-      child: Padding(
-        padding: EdgeInsets.only(left: 8, right: 8),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Expanded(
-                child: OutlinedButton(
-              onPressed: () {},
-              child: Text("拒绝"),
-            )),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-            ),
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Text("调度"),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   /// 预约单信息
   Card buildAppointmentFormInformation() {
     return Card(
@@ -336,6 +309,33 @@ class _ToBeDeterminedDetailPageState extends State<ToBeDeterminedDetailPage> {
             buildPadding(),
             Text("无"),
             buildPadding(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Card buildAction() {
+    return Card(
+      child: Padding(
+        padding: EdgeInsets.only(left: 8, right: 8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Expanded(
+                child: OutlinedButton(
+              onPressed: () {},
+              child: Text("拒绝"),
+            )),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+            ),
+            Expanded(
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text("调度"),
+              ),
+            ),
           ],
         ),
       ),
