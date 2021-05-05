@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
-class SelectCarPage extends StatefulWidget {
+class SelectDriverPage extends StatefulWidget {
   @override
-  _SelectCarPageState createState() => _SelectCarPageState();
+  _SelectDriverPageState createState() => _SelectDriverPageState();
 }
 
-class _SelectCarPageState extends State<SelectCarPage> {
+class _SelectDriverPageState extends State<SelectDriverPage> {
+  static const _idle = "空闲";
+  static const _busy = "忙碌";
+
   late TextEditingController _searchController;
 
   @override
@@ -19,7 +22,7 @@ class _SelectCarPageState extends State<SelectCarPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("选择车辆"),
+        title: Text("选择司机"),
         centerTitle: true,
       ),
       body: Column(
@@ -37,7 +40,7 @@ class _SelectCarPageState extends State<SelectCarPage> {
                 prefixIcon: const Icon(Icons.search),
                 contentPadding: const EdgeInsets.all(0),
                 filled: true,
-                hintText: "车牌号",
+                hintText: "司机/手机号",
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(32),
                 ),
@@ -79,37 +82,52 @@ class _SelectCarPageState extends State<SelectCarPage> {
 
   Padding buildItems() {
     return Padding(
-                    padding: EdgeInsets.only(left: 8, right: 8),
-                    child: Card(
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 8, right: 8),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            buildPadding(),
-                            Text(
-                              "川B23225",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            buildPadding(),
-                            Row(
-                              children: [
-                                Text("东风"),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 24),
-                                ),
-                                Expanded(child: Text("载重30顿")),
-                                Text("空闲"),
-                              ],
-                            ),
-                            buildPadding(),
-                          ],
-                        ),
-                      ),
+      padding: EdgeInsets.only(left: 8, right: 8),
+      child: Card(
+        child: Padding(
+          padding: EdgeInsets.only(left: 8, right: 8, top: 2, bottom: 2),
+          child: Row(
+            children: [
+              CircleAvatar(
+                radius: 24,
+                backgroundImage: NetworkImage(
+                    'https://pic2.zhimg.com/v2-639b49f2f6578eabddc458b84eb3c6a1.jpg'),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 8, right: 8),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    buildPadding(),
+                    Text(
+                      "张东邪",
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                  );
+                    buildPadding(),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text("17322234783"),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 24),
+                        ),
+                        Text(_idle),
+                      ],
+                    ),
+                    buildPadding(),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   Future _onRefresh() async {

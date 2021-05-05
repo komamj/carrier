@@ -101,7 +101,7 @@ class _SplashPageState extends State<SplashPage> {
       if (isLogin) {
         Navigator.pushReplacementNamed(context, Constants.homePage);
       } else {
-        Navigator.pushReplacementNamed(context, Constants.carSchedulingPage);
+        Navigator.pushReplacementNamed(context, Constants.loginPage);
       }
     });
   }
