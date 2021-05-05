@@ -23,7 +23,6 @@ class _SelectDriverPageState extends State<SelectDriverPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("选择司机"),
-        centerTitle: true,
       ),
       body: Column(
         children: [
@@ -139,5 +138,11 @@ class _SelectDriverPageState extends State<SelectDriverPage> {
     return Padding(
       padding: EdgeInsets.only(top: 8),
     );
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
   }
 }

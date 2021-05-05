@@ -11,13 +11,18 @@ class _NewWaybillPageState extends State<NewWaybillPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("新建运单"),
-        centerTitle: true,
       ),
       body: ListView(
         shrinkWrap: true,
         children: [
           buildPadding(),
           buildCarAndDriver(),
+          buildPadding(),
+          buildPickupInformation(),
+          buildPadding(),
+          buildUnloadingInformation(),
+          buildPadding(),
+          buildAction(),
         ],
       ),
     );
@@ -29,9 +34,6 @@ class _NewWaybillPageState extends State<NewWaybillPage> {
       child: Padding(
         padding: EdgeInsets.only(left: 8, right: 8),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             buildPadding(),
             Row(
@@ -56,6 +58,94 @@ class _NewWaybillPageState extends State<NewWaybillPage> {
             buildPadding(),
           ],
         ),
+      ),
+    );
+  }
+
+  /// 提货信息
+  Card buildPickupInformation() {
+    return Card(
+      child: Padding(
+        padding: EdgeInsets.only(left: 8, right: 8),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    "提货信息",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                TextButton(
+                  child: Text(
+                    "添加提货点",
+                  ),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+            buildPadding(),
+            Row(
+              children: [
+                Expanded(
+                  child: Text("司机"),
+                ),
+                Text("选择司机"),
+                Icon(Icons.navigate_next),
+              ],
+            ),
+            buildPadding(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// 卸货信息
+  Card buildUnloadingInformation() {
+    return Card(
+      child: Padding(
+        padding: EdgeInsets.only(left: 8, right: 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            buildPadding(),
+            Text(
+              "卸货信息",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            buildPadding(),
+            Row(
+              children: [
+                Expanded(
+                  child: Text("卸货点"),
+                ),
+                Text("请选择卸货点"),
+              ],
+            ),
+            buildPadding(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Padding buildAction() {
+    return Padding(
+      padding: EdgeInsets.only(left: 8, right: 8),
+      child: Row(
+        children: [
+          Expanded(
+            child: ElevatedButton(
+              onPressed: () {},
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Text("保存"),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

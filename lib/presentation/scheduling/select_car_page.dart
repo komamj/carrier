@@ -20,7 +20,6 @@ class _SelectCarPageState extends State<SelectCarPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("选择车辆"),
-        centerTitle: true,
       ),
       body: Column(
         children: [
@@ -79,37 +78,37 @@ class _SelectCarPageState extends State<SelectCarPage> {
 
   Padding buildItems() {
     return Padding(
-                    padding: EdgeInsets.only(left: 8, right: 8),
-                    child: Card(
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 8, right: 8),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            buildPadding(),
-                            Text(
-                              "川B23225",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            buildPadding(),
-                            Row(
-                              children: [
-                                Text("东风"),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 24),
-                                ),
-                                Expanded(child: Text("载重30顿")),
-                                Text("空闲"),
-                              ],
-                            ),
-                            buildPadding(),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
+      padding: EdgeInsets.only(left: 8, right: 8),
+      child: Card(
+        child: Padding(
+          padding: EdgeInsets.only(left: 8, right: 8),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              buildPadding(),
+              Text(
+                "川B23225",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              buildPadding(),
+              Row(
+                children: [
+                  Text("东风"),
+                  Padding(
+                    padding: EdgeInsets.only(left: 24),
+                  ),
+                  Expanded(child: Text("载重30顿")),
+                  Text("空闲"),
+                ],
+              ),
+              buildPadding(),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   Future _onRefresh() async {

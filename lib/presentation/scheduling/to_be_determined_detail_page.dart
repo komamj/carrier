@@ -17,7 +17,6 @@ class _ToBeDeterminedDetailPageState extends State<ToBeDeterminedDetailPage> {
       key: _scaffoldKey,
       appBar: AppBar(
         title: Text("预约单详情"),
-        centerTitle: true,
       ),
       body: ListView(
         shrinkWrap: true,
