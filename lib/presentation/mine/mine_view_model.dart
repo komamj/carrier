@@ -1,21 +1,15 @@
+import 'package:carrier/data/local/local_data_source.dart';
+import 'package:carrier/data/local/local_data_source_imp.dart';
+import 'package:carrier/domain/model/user.dart';
+import 'package:carrier/domain/repository/mine_repository.dart';
 import 'package:carrier/presentation/base/base_view_model.dart';
-import 'package:flutter/material.dart';
 
 class MineViewModel extends BaseViewModel {
-  int _currentIndex = 0;
+  LocalDataSource _localDataSource = LocalDataSourceImp.internal();
+  final MineRepository repository;
+  MineViewModel({required this.repository});
 
-  int get currentIndex => _currentIndex;
-
-  bool _isFirstLoading = true;
-
-  bool get firstLoading => _isFirstLoading;
-
-  void updateCurrentIndex(int index) {
-    if (_currentIndex != index) {
-      _currentIndex = index;
-      notifyListeners();
-    }
-
-    debugPrint("MineViewModel updateCurrentIndex currentIndex:$currentIndex");
+  Future<User?> getUser() async {
+    return await _localDataSource.getUser();
   }
 }

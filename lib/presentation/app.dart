@@ -3,6 +3,7 @@ import 'package:carrier/presentation/home/home_page.dart';
 import 'package:carrier/presentation/home/home_view_model.dart';
 import 'package:carrier/presentation/mine/agreement/platform_agreement_page.dart';
 import 'package:carrier/presentation/mine/feedback/feedback_page.dart';
+import 'package:carrier/presentation/mine/mine_view_model.dart';
 import 'package:carrier/presentation/mine/resource/car_add_bind_page.dart';
 import 'package:carrier/presentation/mine/resource/car_add_page.dart';
 import 'package:carrier/presentation/mine/resource/car_del_page.dart';
@@ -77,6 +78,10 @@ class App extends StatelessWidget {
                     create: (_) => WaybillViewModel(
                         repository:
                             Injector.singleton.provideWaybillRepository()),
+                  ),
+                  ChangeNotifierProvider(
+                    create: (_) => MineViewModel(
+                        repository: Injector.singleton.provideMineRepository()),
                   )
                 ],
                 child: HomePage(),

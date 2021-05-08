@@ -1,3 +1,4 @@
+import 'package:carrier/presentation/mine/mine_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../util/constants.dart';
@@ -10,6 +11,7 @@ class MinePage extends StatefulWidget {
 
 class _MinePageState extends State<MinePage> {
   final _cardVerticalSpacing = 20.0;
+
   @override
   void initState() {
     super.initState();
