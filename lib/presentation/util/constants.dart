@@ -30,6 +30,10 @@ class Constants {
       "/mine/resource/resource_management/car_add_page"; // 资源管理页->添加车辆
   static const String carAddBindPage =
       "/mine/resource/resource_management/car_add_bind_page"; // 资源管理页->关联车辆
+  static const String carAddBindResultPage =
+      "/mine/resource/resource_management/car_add_bind_result_page"; // 资源管理页->关联车辆->车辆关联结果
+  static const String carInfoPage =
+      "/mine/resource/resource_management/car_info_page"; // 资源管理页-->车辆详情
   static const String carDelPage =
       "/mine/resource/resource_management/car_del_page"; // 资源管理页-->编辑车辆
   static const String carEditPage =

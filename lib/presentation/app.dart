@@ -5,10 +5,12 @@ import 'package:carrier/presentation/mine/agreement/platform_agreement_page.dart
 import 'package:carrier/presentation/mine/feedback/feedback_page.dart';
 import 'package:carrier/presentation/mine/mine_view_model.dart';
 import 'package:carrier/presentation/mine/resource/car_add_bind_page.dart';
+import 'package:carrier/presentation/mine/resource/car_add_bind_result_page.dart';
 import 'package:carrier/presentation/mine/resource/car_add_page.dart';
 import 'package:carrier/presentation/mine/resource/car_del_page.dart';
 import 'package:carrier/presentation/mine/resource/car_del_view_model.dart';
 import 'package:carrier/presentation/mine/resource/car_edit_page.dart';
+import 'package:carrier/presentation/mine/resource/car_info_page.dart';
 import 'package:carrier/presentation/mine/resource/driver_add_page.dart';
 import 'package:carrier/presentation/mine/resource/driver_add_search_page.dart';
 import 'package:carrier/presentation/mine/resource/driver_del_page.dart';
@@ -110,6 +112,7 @@ class App extends StatelessWidget {
               ),
           Constants.carAddPage: (context) => CarAddPage(),
           Constants.carAddBindPage: (context) => CarAddBindPage(),
+          Constants.carAddBindResultPage: (context) => CarAddBindResultPage(),
           Constants.carDelPage: (context) => MultiProvider(
                 providers: [
                   ChangeNotifierProvider(
@@ -118,6 +121,7 @@ class App extends StatelessWidget {
                 ],
                 child: CarDelPage(),
               ),
+          Constants.carInfoPage: (context) => CarInfoPage(),
           Constants.carEditPage: (context) => CarEditPage(),
           Constants.driverAddPage: (context) => DriverAddPage(),
           Constants.driverAddSearchPage: (context) => DriverAddSearchPage(),

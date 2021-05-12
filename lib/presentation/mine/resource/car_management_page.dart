@@ -141,7 +141,7 @@ class _CarManagementPageState extends State<CarManagementPage> {
         color: Colors.white,
         child: InkWell(
           onTap: () {
-            // Navigator.pushNamed(context, routeName);
+            Navigator.pushNamed(context, Constants.carInfoPage);
           },
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 15),
