@@ -189,7 +189,8 @@ class _LoginPageState extends State<LoginPage> {
   _login() {
     context
         .read<UserViewModel>()
-        .login(_userNameController.text, _passwordController.text)
+        //.login(_userNameController.text, _passwordController.text)
+        .login('18380479234', 'ds123456')
         .then((result) {
       if (result) {
         Navigator.pushReplacementNamed(context, Constants.homePage);

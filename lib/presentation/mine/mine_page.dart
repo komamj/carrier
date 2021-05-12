@@ -1,3 +1,6 @@
+import 'package:carrier/data/local/local_data_source.dart';
+import 'package:carrier/data/local/local_data_source_imp.dart';
+import 'package:carrier/domain/model/user.dart';
 import 'package:carrier/presentation/mine/mine_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

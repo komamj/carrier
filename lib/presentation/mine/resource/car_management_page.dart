@@ -1,4 +1,5 @@
 import 'package:carrier/presentation/mine/resource/resource_management_view_model.dart';
+import 'package:carrier/presentation/util/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -87,7 +88,9 @@ class _CarManagementPageState extends State<CarManagementPage> {
                   width: 40,
                   height: 40,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, Constants.carDelPage);
+                    },
                     child: Icon(
                       Icons.edit_outlined,
                       color: Colors.grey,
@@ -98,7 +101,9 @@ class _CarManagementPageState extends State<CarManagementPage> {
                   width: 40,
                   height: 40,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, Constants.carAddPage);
+                    },
                     child: Icon(
                       Icons.add,
                       color: Colors.grey,
@@ -157,10 +162,65 @@ class _CarManagementPageState extends State<CarManagementPage> {
                 Expanded(
                     flex: 1,
                     child: Container(
-                      child: Text(
-                        item["title"],
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w600),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            item["title"],
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w600),
+                          ),
+                          SizedBox(
+                            height: 16,
+                          ),
+                          Row(
+                            children: [
+                              Material(
+                                //53,209,47
+                                color: Color.fromRGBO(248, 248, 248, 0.5),
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.check_circle_outline,
+                                        color: Color.fromRGBO(53, 209, 47, 1),
+                                        size: 16,
+                                      ),
+                                      Text(
+                                        "基础认证",
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color:
+                                                Color.fromRGBO(53, 209, 47, 1)),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Material(
+                                color: Color.fromRGBO(248, 248, 248, 1),
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.check_circle_outline,
+                                        color: Color.fromRGBO(152, 152, 152, 1),
+                                        size: 16,
+                                      ),
+                                      Text(
+                                        "完善信息",
+                                        style: TextStyle(fontSize: 12),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
                       ),
                     )),
                 Container(
