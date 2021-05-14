@@ -1,3 +1,4 @@
+import 'package:carrier/config/config.dart';
 import 'package:flutter/material.dart';
 
 class CarEditPage extends StatefulWidget {
@@ -6,6 +7,35 @@ class CarEditPage extends StatefulWidget {
 }
 
 class _CarEditPageState extends State<CarEditPage> {
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('道路运输证'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: [
+                Container(
+                  child: Image.network(RTCURL),
+                )
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              child: Text('确定'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -252,7 +282,9 @@ class _CarEditPageState extends State<CarEditPage> {
                             style: TextStyle(fontSize: 12, color: Colors.grey),
                           ),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              _showMyDialog();
+                            },
                             child: Text(
                               "查看示例",
                               style: TextStyle(

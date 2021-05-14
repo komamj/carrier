@@ -1,3 +1,4 @@
+import 'package:carrier/presentation/util/constants.dart';
 import 'package:flutter/material.dart';
 
 class DriverManagementPage extends StatefulWidget {
@@ -69,7 +70,9 @@ class _DriverManagementPageState extends State<DriverManagementPage> {
                   width: 40,
                   height: 40,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, Constants.driverDelPage);
+                    },
                     child: Icon(
                       Icons.edit_outlined,
                       color: Colors.grey,
@@ -80,7 +83,10 @@ class _DriverManagementPageState extends State<DriverManagementPage> {
                   width: 40,
                   height: 40,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(
+                          context, Constants.driverAddSearchPage);
+                    },
                     child: Icon(
                       Icons.add,
                       color: Colors.grey,

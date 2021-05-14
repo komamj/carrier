@@ -1,3 +1,4 @@
+import 'package:carrier/config/config.dart';
 import 'package:carrier/presentation/util/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -13,23 +14,19 @@ class _CarInfoPageState extends State<CarInfoPage> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('提示'),
+          title: Text('道路运输证'),
           content: SingleChildScrollView(
             child: ListBody(
-              children: <Widget>[
+              children: [
                 Container(
-                  width: 60,
-                  height: 60,
-                  child: Image.network(
-                    "https://pics7.baidu.com/feed/a8773912b31bb051fb37de05c78e64b24bede083.jpeg?token=f02d22e51399a01c6c239e6247cec44f",
-                  ),
+                  child: Image.network(RTCURL),
                 )
               ],
             ),
           ),
-          actions: <Widget>[
+          actions: [
             TextButton(
-              child: Text('Approve'),
+              child: Text('确定'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -296,27 +293,6 @@ class _CarInfoPageState extends State<CarInfoPage> {
                           InkWell(
                             onTap: () {
                               _showMyDialog();
-                              //showDialog(context: context, builder: (BuildContext context){
-                              // return AlertDialog({
-                              //   title: Text("温馨提示"),
-                              //   content: SingleChildScrollView(
-                              //       child: ListBody(
-                              //           children: <Widget>[
-                              //              Text('This is a demo alert dialog.'),
-                              //              Text('Would you like to approve of this message?'),
-                              //           ],
-                              // ),
-                              //   ),
-                              //   actions: <Widget>[
-                              //     extButton(
-                              //       child: Text("再考虑一下"),
-                              //       onPressed: () {
-                              //         Navigator.of(context).pop(false);
-                              //       },
-                              //     ),
-                              //   ]
-                              // })
-                              //})
                             },
                             child: Text(
                               "查看示例",
