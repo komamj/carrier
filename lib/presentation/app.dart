@@ -12,6 +12,7 @@ import 'package:carrier/presentation/mine/resource/car_del_view_model.dart';
 import 'package:carrier/presentation/mine/resource/car_edit_page.dart';
 import 'package:carrier/presentation/mine/resource/car_info_page.dart';
 import 'package:carrier/presentation/mine/resource/driver_add_page.dart';
+import 'package:carrier/presentation/mine/resource/driver_add_result_page.dart';
 import 'package:carrier/presentation/mine/resource/driver_add_search_page.dart';
 import 'package:carrier/presentation/mine/resource/driver_del_page.dart';
 import 'package:carrier/presentation/mine/resource/driver_edit_page.dart';
@@ -125,6 +126,7 @@ class App extends StatelessWidget {
           Constants.carEditPage: (context) => CarEditPage(),
           Constants.driverAddPage: (context) => DriverAddPage(),
           Constants.driverAddSearchPage: (context) => DriverAddSearchPage(),
+          Constants.driverAddResultPage: (context) => DriverAddResultPage(),
           Constants.driverDelPage: (context) => DriverDelPage(),
           Constants.driverEditPage: (context) => DriverEditPage(),
           Constants.driverInfoPage: (context) => DriverInfoPage(),

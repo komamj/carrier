@@ -39,10 +39,12 @@ class Constants {
   static const String carEditPage =
       "/mine/resource/resource_management/car_edit_page"; // 资源管理页-->车辆完善信息
 
-  static const String driverAddPage =
-      "/mine/resource/resource_management/driver_add_page"; // 资源管理页->添加司机
   static const String driverAddSearchPage =
       "/mine/resource/resource_management/driver_add_search_page"; // 资源管理页->搜索司机
+  static const String driverAddPage =
+      "/mine/resource/resource_management/driver_add_page"; // 资源管理页->添加司机
+  static const String driverAddResultPage =
+      "/mine/resource/resource_management/driver_add_result_page"; // 资源管理页->添加司机->添加司机结果
   static const String driverDelPage =
       "/mine/resource/resource_management/driver_del_page"; // 资源管理页->编辑司机
   static const String driverEditPage =

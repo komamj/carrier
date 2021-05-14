@@ -21,8 +21,12 @@ bool isUrl(String value) {
 
 ///校验身份证
 bool isIdCard(String value) {
-  RegExp identity = new RegExp(r"\d{17}[\d|x]|\d{15}");
-  return identity.hasMatch(value);
+  if (value.length != 18) {
+    return false;
+  } else {
+    RegExp identity = new RegExp(r"\d{17}[\d|x]|\d{15}");
+    return identity.hasMatch(value);
+  }
 }
 
 ///正浮点数
