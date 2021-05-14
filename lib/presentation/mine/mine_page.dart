@@ -43,9 +43,11 @@ class _MinePageState extends State<MinePage> {
                     children: [
                       Container(
                         width: 80,
+                        height: 80,
                         child: ClipOval(
                           child: Image.network(
-                            'https://pics7.baidu.com/feed/a8773912b31bb051fb37de05c78e64b24bede083.jpeg?token=f02d22e51399a01c6c239e6247cec44f',
+                            context.read<MineViewModel>().avatar,
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
@@ -57,11 +59,11 @@ class _MinePageState extends State<MinePage> {
                           children: [
                             Text(context.read<MineViewModel>().name),
                             Text(
-                              "17345832388",
+                              context.read<MineViewModel>().mobile,
                               style: TextStyle(color: Colors.grey),
                             ),
                             Text(
-                              "万古长青有限公司",
+                              context.read<MineViewModel>().companyName,
                               style: TextStyle(color: Colors.grey),
                             )
                           ],

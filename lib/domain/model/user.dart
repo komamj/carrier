@@ -29,11 +29,12 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
+        phoneNumber: json['phoneNumber'],
         nickName: json['nickName'],
         accessToken: json['accessToken'],
         tokenType: json['tokenType'],
         refreshToken: json['refreshToken'],
-        avatar: json['portraitDentryid'],
+        avatar: json['avatar'],
         organizationId: json['organizationId'],
         organizationName: json['organizationName'],
         organizationType: json['organizationType'],
