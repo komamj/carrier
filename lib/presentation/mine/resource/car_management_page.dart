@@ -1,8 +1,6 @@
-import 'package:carrier/presentation/mine/resource/resource_management_view_model.dart';
 import 'package:carrier/presentation/util/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class CarManagementPage extends StatefulWidget {
   const CarManagementPage({Key? key}) : super(key: key);
