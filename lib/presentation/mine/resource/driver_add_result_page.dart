@@ -32,49 +32,18 @@ class _DriverAddResultPageState extends State<DriverAddResultPage> {
                 "恭喜您已完成实名认证！",
                 textAlign: TextAlign.center,
               ),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 34),
-                child: Row(
-                  children: [
-                    ElevatedButton(
-                      child: Container(
-                        width: 120,
-                        child: Text(
-                          "完善司机信息",
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Colors.blueAccent)),
-                      onPressed: () {
-                        Navigator.pushNamed(context, Constants.driverEditPage);
-                      },
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    ElevatedButton(
-                      child: Container(
-                        width: 120,
-                        child: Text(
-                          "继续添加",
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.green)),
-                      onPressed: () {
-                        Navigator.popUntil(context,
-                            ModalRoute.withName(Constants.driverAddSearchPage));
-                      },
-                    )
-                  ],
+              TextButton(
+                child: Text(
+                  "完善身份信息",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    decoration: TextDecoration.underline,
+                    decorationColor: Colors.blue,
+                  ),
                 ),
+                onPressed: () {
+                  Navigator.pushNamed(context, Constants.driverEditPage);
+                },
               ),
             ],
           ),

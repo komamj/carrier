@@ -11,14 +11,11 @@ class _DriverEditPageState extends State<DriverEditPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "完善司机",
+          "完善信息",
         ),
         centerTitle: true,
       ),
-      body: Container(
-        alignment: Alignment.center,
-        child: Text("内容"),
-      ),
+      body: Container(),
     );
   }
 }
