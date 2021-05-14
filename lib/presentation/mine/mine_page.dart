@@ -1,6 +1,9 @@
+import 'package:carrier/domain/model/user.dart';
+import 'package:carrier/presentation/mine/mine_view_model.dart';
+import 'package:carrier/presentation/util/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../util/constants.dart';
+import 'package:provider/provider.dart';
 
 class MinePage extends StatefulWidget {
   const MinePage({Key? key}) : super(key: key);
@@ -14,6 +17,7 @@ class _MinePageState extends State<MinePage> {
   @override
   void initState() {
     super.initState();
+    context.read<MineViewModel>().getUser();
   }
 
   _userInfo() {
@@ -51,7 +55,7 @@ class _MinePageState extends State<MinePage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("冯更生"),
+                            Text(context.read<MineViewModel>().name),
                             Text(
                               "17345832388",
                               style: TextStyle(color: Colors.grey),

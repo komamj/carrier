@@ -38,7 +38,8 @@ class LocalDataSourceImp extends LocalDataSource {
     if (user == null) {
       return null;
     } else {
-      return json.decode(user);
+      //return json.decode(user);
+      return User.fromJson(json.decode(user));
     }
   }
 }
