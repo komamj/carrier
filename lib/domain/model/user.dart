@@ -1,6 +1,6 @@
 class User {
-  String? phoneNumber;
-  String? password;
+  String? phoneNumber = "";
+  String? password = "";
   final String? nickName;
   final String? accessToken;
   final String? tokenType;
@@ -30,6 +30,7 @@ class User {
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
         phoneNumber: json['phoneNumber'],
+        password: json['password'],
         nickName: json['nickName'],
         accessToken: json['accessToken'],
         tokenType: json['tokenType'],

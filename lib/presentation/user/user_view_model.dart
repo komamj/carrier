@@ -1,6 +1,6 @@
+import 'package:carrier/domain/model/user.dart';
 import 'package:carrier/domain/repository/user_repository.dart';
 import 'package:carrier/presentation/base/base_view_model.dart';
-import 'package:flutter/cupertino.dart';
 
 class UserViewModel extends BaseViewModel {
   static const _error = "账号或密码错误，请重新登录";
@@ -24,6 +24,16 @@ class UserViewModel extends BaseViewModel {
   bool get showPassword => _showPassword;
 
   UserViewModel({required this.repository});
+
+  Future<User> getUser() async {
+    User? user = await repository.getUser();
+    if (user == null) {
+      user = new User(phoneNumber: "", password: "");
+    } else {
+      user = User(phoneNumber: user.phoneNumber, password: user.password);
+    }
+    return user;
+  }
 
   void updateSavePassword(bool newValue) {
     if (_savePassword != newValue) {
