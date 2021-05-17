@@ -17,8 +17,15 @@ class _DriverInfoBankCardAddPageState extends State<DriverInfoBankCardAddPage> {
         centerTitle: true,
       ),
       body: Container(
-        alignment: Alignment.center,
-        child: Text("内容"),
+        color: Colors.blue[50],
+        child: Align(
+          // 不显式指定宽高，通过同时指定widthFactor和heightFactor 为2也是可以达到同样的效果：2*60=120
+          alignment: Alignment.topRight,
+          // FlutterLogo 是Flutter SDK提供的一个组件，内容就是Flutter的商标。
+          child: FlutterLogo(
+            size: 60,
+          ),
+        ),
       ),
     );
   }

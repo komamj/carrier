@@ -123,7 +123,9 @@ class _DriverManagementPageState extends State<DriverManagementPage> {
     return Material(
         color: Colors.white,
         child: InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, Constants.driverInfoPage);
+            },
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 15),
               child: Flex(
