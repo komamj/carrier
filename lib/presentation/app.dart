@@ -3,6 +3,7 @@ import 'package:carrier/presentation/home/home_page.dart';
 import 'package:carrier/presentation/home/home_view_model.dart';
 import 'package:carrier/presentation/mine/agreement/platform_agreement_page.dart';
 import 'package:carrier/presentation/mine/feedback/feedback_page.dart';
+import 'package:carrier/presentation/mine/feedback/feedback_view_model.dart';
 import 'package:carrier/presentation/mine/mine_view_model.dart';
 import 'package:carrier/presentation/mine/resource/car_add_bind_page.dart';
 import 'package:carrier/presentation/mine/resource/car_add_bind_result_page.dart';
@@ -101,7 +102,11 @@ class App extends StatelessWidget {
           Constants.settingsPage: (context) => SettingsPage(),
           Constants.changePasswordPage: (context) => ChangePasswordPage(),
           Constants.aboutUsPage: (context) => AboutUsPage(),
-          Constants.feedbackPage: (context) => FeedbackPage(),
+          Constants.feedbackPage: (context) => MultiProvider(providers: [
+                ChangeNotifierProvider(
+                  create: (context) => FeedbackViewModel(),
+                ),
+              ], child: FeedbackPage()),
           Constants.agreementPage: (context) => PlatformAgreementPage(),
           Constants.resourcePage: (context) => MultiProvider(
                 providers: [

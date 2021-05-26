@@ -1,5 +1,10 @@
+import 'package:carrier/presentation/mine/feedback/feedback_title.dart';
+import 'package:carrier/presentation/mine/feedback/feedback_view_model.dart';
+import 'package:carrier/presentation/mine/feedback/feedback_status/save_page.dart';
+import 'package:carrier/presentation/mine/feedback/feedback_status/replied_page.dart';
+import 'package:carrier/presentation/mine/feedback/feedback_status/no_reply_page.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:provider/provider.dart';
 
 class FeedbackPage extends StatefulWidget {
   @override
@@ -7,18 +12,15 @@ class FeedbackPage extends StatefulWidget {
 }
 
 class _FeedbackPageState extends State<FeedbackPage> {
-  Future<void>? _launched;
-
-  Future<void> _makePhoneCall(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
+  @override
+  void initState() {
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    final _pages = [SavePage(), RepliedPage(), NoReplyPage()];
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -30,14 +32,10 @@ class _FeedbackPageState extends State<FeedbackPage> {
       ),
       body: Container(
         alignment: Alignment.center,
-        child: ListView(
+        child: Column(
           children: [
-            ElevatedButton(
-              child: Text("联系客服"),
-              onPressed: () async {
-                launch("tel:18380479234");
-              },
-            ),
+            FeedbackTitle(context.watch<FeedbackViewModel>().currentIndex),
+            _pages[context.watch<FeedbackViewModel>().currentIndex]
           ],
         ),
       ),
