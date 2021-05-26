@@ -18,6 +18,13 @@ class _LoginPageState extends State<LoginPage> {
   void initState() {
     super.initState();
 
+    context.read<UserViewModel>().getUser().then((user) {
+      setState(() {
+        _userNameController.text = user.phoneNumber!;
+        _passwordController.text = user.password!;
+      });
+    });
+
     _userNameController.addListener(() {
       context.read<UserViewModel>().checkUserName(_userNameController.text);
     });
@@ -189,8 +196,7 @@ class _LoginPageState extends State<LoginPage> {
   _login() {
     context
         .read<UserViewModel>()
-        //.login(_userNameController.text, _passwordController.text)
-        .login('18380479234', 'ds123456')
+        .login(_userNameController.text, _passwordController.text)
         .then((result) {
       if (result) {
         Navigator.pushReplacementNamed(context, Constants.homePage);
