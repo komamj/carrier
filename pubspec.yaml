@@ -57,6 +57,7 @@ flutter:
   assets:
     - assets/images/bg_splash.png
     - assets/images/backspace.png
+    - assets/images/icon_car_def.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

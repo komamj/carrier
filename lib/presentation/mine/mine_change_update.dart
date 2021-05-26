@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
 
-class MineListItemIcon extends StatelessWidget {
-  final String pageName;
+class MineChangeUpdate extends StatelessWidget {
   final String title;
-  const MineListItemIcon(this.title, this.pageName, {Key? key})
-      : super(key: key);
+
+  const MineChangeUpdate(this.title, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Material(
         color: Colors.white,
         child: InkWell(
           highlightColor: Color.fromRGBO(243, 243, 243, 0.6),
-          onTap: () {
-            Navigator.pushNamed(context, pageName);
-          },
+          onTap: () {},
           child: Container(
               child: Padding(
             padding: EdgeInsets.all(16),
@@ -24,9 +20,9 @@ class MineListItemIcon extends StatelessWidget {
                   child: Container(
                 child: Text(title),
               )),
-              Icon(
-                Icons.navigate_next,
-                color: Colors.grey,
+              Text(
+                "v2.4.4",
+                style: TextStyle(color: Colors.grey),
               )
             ]),
           )),

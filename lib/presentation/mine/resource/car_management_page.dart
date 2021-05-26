@@ -1,3 +1,4 @@
+import 'package:carrier/config/config.dart';
 import 'package:carrier/presentation/util/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,24 +18,13 @@ class _CarManagementPageState extends State<CarManagementPage> {
   void initState() {
     super.initState();
     listData = [
-      {"title": '川AMJ729'},
-      {"title": '川AMJ719'},
-      {"title": '川AMJ709'},
-      {"title": '川AMJ729'},
-      {"title": '川AMJ719'},
-      {"title": '川AMJ709'},
-      {"title": '川AMJ729'},
-      {"title": '川AMJ719'},
-      {"title": '川AMJ709'},
-      {"title": '川AMJ729'},
-      {"title": '川AMJ719'},
-      {"title": '川AMJ709'},
-      {"title": '川AMJ729'},
-      {"title": '川AMJ719'},
-      {"title": '川AMJ709'},
-      {"title": '川AMJ729'},
-      {"title": '川AMJ719'},
-      {"title": '川AMJ709'},
+      {
+        "title": '川AMJ729',
+        "url":
+            'https://pics7.baidu.com/feed/a8773912b31bb051fb37de05c78e64b24bede083.jpeg?token=f02d22e51399a01c6c239e6247cec44f'
+      },
+      {"title": '川AMJ719', "url": ""},
+      {"title": '川AMJ709', "url": ""},
     ];
     _searchController = TextEditingController();
 
@@ -150,8 +140,14 @@ class _CarManagementPageState extends State<CarManagementPage> {
                 Container(
                   width: 60,
                   height: 60,
-                  child: Image.network(
+                  /*child: Image.network(
                     "https://pics7.baidu.com/feed/a8773912b31bb051fb37de05c78e64b24bede083.jpeg?token=f02d22e51399a01c6c239e6247cec44f",
+                  ),*/
+                  child: FadeInImage.assetNetwork(
+                    image: item["url"] == ""
+                        ? "https://flutterchina.club/images/flutter-mark-square-100.png"
+                        : item["url"],
+                    placeholder: "$CARPHOTODEF",
                   ),
                 ),
                 SizedBox(

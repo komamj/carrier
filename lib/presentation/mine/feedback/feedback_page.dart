@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FeedbackPage extends StatefulWidget {
   @override
@@ -6,6 +7,16 @@ class FeedbackPage extends StatefulWidget {
 }
 
 class _FeedbackPageState extends State<FeedbackPage> {
+  Future<void>? _launched;
+
+  Future<void> _makePhoneCall(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +30,16 @@ class _FeedbackPageState extends State<FeedbackPage> {
       ),
       body: Container(
         alignment: Alignment.center,
-        child: Text("内容"),
+        child: ListView(
+          children: [
+            ElevatedButton(
+              child: Text("联系客服"),
+              onPressed: () async {
+                launch("tel:18380479234");
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

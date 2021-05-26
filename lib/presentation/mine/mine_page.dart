@@ -1,4 +1,6 @@
 import 'package:carrier/domain/model/user.dart';
+import 'package:carrier/presentation/mine/mine_change_update.dart';
+import 'package:carrier/presentation/mine/mine_list_item_icon.dart';
 import 'package:carrier/presentation/mine/mine_view_model.dart';
 import 'package:carrier/presentation/util/constants.dart';
 import 'package:flutter/cupertino.dart';
@@ -156,73 +158,25 @@ class _MinePageState extends State<MinePage> {
     );
   }
 
-  _listItemIcon(String title, String pageName) {
-    return Material(
-        color: Colors.white,
-        child: InkWell(
-          highlightColor: Color.fromRGBO(243, 243, 243, 0.6),
-          onTap: () {
-            Navigator.pushNamed(context, pageName);
-          },
-          child: Container(
-              child: Padding(
-            padding: EdgeInsets.all(16),
-            child: Flex(direction: Axis.horizontal, children: [
-              Expanded(
-                  child: Container(
-                child: Text(title),
-              )),
-              Icon(
-                Icons.navigate_next,
-                color: Colors.grey,
-              )
-            ]),
-          )),
-        ));
-  }
-
-  _listItemText(String title) {
-    return Material(
-        color: Colors.white,
-        child: InkWell(
-          highlightColor: Color.fromRGBO(243, 243, 243, 0.6),
-          onTap: () {},
-          child: Container(
-              child: Padding(
-            padding: EdgeInsets.all(16),
-            child: Flex(direction: Axis.horizontal, children: [
-              Expanded(
-                  child: Container(
-                child: Text(title),
-              )),
-              Text(
-                "v2.4.4",
-                style: TextStyle(color: Colors.grey),
-              )
-            ]),
-          )),
-        ));
-  }
-
   _listMenu() {
     return Container(
         child: Padding(
       padding: EdgeInsets.all(0),
       child: Column(
         children: [
-          this._listItemIcon("平台协议", Constants.agreementPage),
+          MineListItemIcon("平台协议", Constants.agreementPage),
           SizedBox(
             height: 2,
           ),
-          this._listItemIcon("意见反馈", Constants.feedbackPage),
+          MineListItemIcon("意见反馈", Constants.feedbackPage),
           SizedBox(
             height: 2,
           ),
-          this._listItemIcon("设置", Constants.settingsPage),
+          MineListItemIcon("设置", Constants.settingsPage),
           SizedBox(
             height: 2,
           ),
-          this._listItemText("检查更新")
+          MineChangeUpdate("检查更新")
         ],
       ),
     ));

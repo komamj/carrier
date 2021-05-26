@@ -1,3 +1,5 @@
+import 'package:carrier/presentation/mine/logout.dart';
+import 'package:carrier/presentation/mine/mine_list_item_icon.dart';
 import 'package:carrier/presentation/util/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -7,57 +9,6 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  _listItemIcon(String title, String pageName) {
-    return Material(
-        color: Colors.white,
-        child: InkWell(
-          highlightColor: Color.fromRGBO(243, 243, 243, 0.6),
-          onTap: () {
-            Navigator.pushNamed(context, pageName);
-          },
-          child: Container(
-              child: Padding(
-            padding: EdgeInsets.all(16),
-            child: Flex(direction: Axis.horizontal, children: [
-              Expanded(
-                  child: Container(
-                child: Text(title),
-              )),
-              Icon(
-                Icons.navigate_next,
-                color: Colors.grey,
-              )
-            ]),
-          )),
-        ));
-  }
-
-  _listItemText(String title) {
-    return Material(
-        color: Colors.white,
-        child: InkWell(
-          highlightColor: Color.fromRGBO(243, 243, 243, 0.6),
-          onTap: () {
-            //Navigator.pushNamed(context, Constants.loginPage);
-            Navigator.of(context).pushNamedAndRemoveUntil(
-                Constants.loginPage, ModalRoute.withName(Constants.loginPage));
-          },
-          child: Container(
-              child: Padding(
-            padding: EdgeInsets.all(16),
-            child: Flex(direction: Axis.horizontal, children: [
-              Expanded(
-                  child: Container(
-                child: Text(
-                  title,
-                  style: TextStyle(color: Colors.grey),
-                ),
-              ))
-            ]),
-          )),
-        ));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,15 +26,15 @@ class _SettingsPageState extends State<SettingsPage> {
             SizedBox(
               height: 20.0,
             ),
-            this._listItemIcon("修改密码", Constants.changePasswordPage),
+            MineListItemIcon("修改密码", Constants.changePasswordPage),
             SizedBox(
               height: 2.0,
             ),
-            this._listItemIcon("关于我们", Constants.aboutUsPage),
+            MineListItemIcon("关于我们", Constants.aboutUsPage),
             SizedBox(
               height: 2.0,
             ),
-            this._listItemText("退出"),
+            Logout("退出"),
           ],
         ),
       ),
