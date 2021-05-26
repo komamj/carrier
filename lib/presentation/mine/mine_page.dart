@@ -1,4 +1,4 @@
-import 'package:carrier/domain/model/user.dart';
+import 'package:carrier/config/config.dart';
 import 'package:carrier/presentation/mine/mine_change_update.dart';
 import 'package:carrier/presentation/mine/mine_list_item_icon.dart';
 import 'package:carrier/presentation/mine/mine_view_model.dart';
@@ -15,11 +15,22 @@ class MinePage extends StatefulWidget {
 
 class _MinePageState extends State<MinePage> {
   final _cardVerticalSpacing = 20.0;
+  String _avatar = AVATARDEF;
+  String _name = "";
+  String _mobile = "";
+  String _companyName = "";
 
   @override
   void initState() {
     super.initState();
-    context.read<MineViewModel>().getUser();
+    context.read<MineViewModel>().getUser().then((user) {
+      setState(() {
+        _name = user.avatar!;
+        _name = user.nickName!;
+        _mobile = user.phoneNumber!;
+        _companyName = user.organizationName!;
+      });
+    });
   }
 
   _userInfo() {
@@ -48,7 +59,7 @@ class _MinePageState extends State<MinePage> {
                         height: 80,
                         child: ClipOval(
                           child: Image.network(
-                            context.read<MineViewModel>().avatar,
+                            _avatar,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -59,13 +70,13 @@ class _MinePageState extends State<MinePage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(context.read<MineViewModel>().name),
+                            Text(_name),
                             Text(
-                              context.read<MineViewModel>().mobile,
+                              _mobile,
                               style: TextStyle(color: Colors.grey),
                             ),
                             Text(
-                              context.read<MineViewModel>().companyName,
+                              _companyName,
                               style: TextStyle(color: Colors.grey),
                             )
                           ],

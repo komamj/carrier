@@ -1,4 +1,5 @@
 import 'package:carrier/config/config.dart';
+import 'package:carrier/domain/model/user.dart';
 import 'package:carrier/domain/repository/mine_repository.dart';
 import 'package:carrier/presentation/base/base_view_model.dart';
 
@@ -17,16 +18,19 @@ class MineViewModel extends BaseViewModel {
   String get companyName => _companyName;
   MineViewModel({required this.repository});
 
-  void getUser() {
-    repository.getUser().then((user) {
-      if (user != null) {
-        _avatar =
-            user.avatar != null ? aliOssUrl + '/roadExample.png' : AVATARDEF;
-        _name = user.nickName!;
-        _mobile = user.phoneNumber!;
-        _companyName = user.organizationName!;
-        notifyListeners();
-      }
-    });
+  Future<User> getUser() async {
+    User? user = await repository.getUser();
+    if (user == null) {
+      user = new User(
+          nickName: "", phoneNumber: "", avatar: "", organizationName: "");
+    } else {
+      user = User(
+          nickName: user.nickName,
+          phoneNumber: user.phoneNumber,
+          avatar:
+              user.avatar != null ? aliOssUrl + '/roadExample.png' : AVATARDEF,
+          organizationName: user.organizationName);
+    }
+    return user;
   }
 }
