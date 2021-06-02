@@ -1,11 +1,11 @@
 import 'dart:core';
 
+import 'package:carrier/data/entities/sms_code_request.dart';
 import 'package:carrier/data/entities/user_request.dart';
 import 'package:carrier/data/remote/remote_data_source.dart';
 import 'package:carrier/domain/model/count.dart';
 import 'package:carrier/domain/model/user.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 
 class RemoteDataSourceImp extends RemoteDataSource {
   static const _count = "/v1/appHomePage/total"; // 首页各数量
@@ -56,6 +56,21 @@ class RemoteDataSourceImp extends RemoteDataSource {
       };
     }
     return user;
+  }
+
+  @override
+  Future<bool?> authNotCode(String phoneNumber, String template) async {
+    bool? isOk;
+    SmsCodeRequest smsCodeRequest =
+        SmsCodeRequest(phoneNumber: phoneNumber, template: template);
+    Response response =
+        await client.post(_smsCode, data: smsCodeRequest.toJson());
+    if (ok(response)) {
+      isOk = true;
+    } else {
+      isOk = false;
+    }
+    return isOk;
   }
 
   updatePassword() {}

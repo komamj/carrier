@@ -47,4 +47,6 @@ abstract class RemoteDataSource {
   Future<Count> getCount();
 
   Future<User?> login(String phoneNumber, String password);
+
+  Future<bool?> authNotCode(String phoneNumber, String template);
 }

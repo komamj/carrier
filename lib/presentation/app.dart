@@ -105,7 +105,15 @@ class App extends StatelessWidget {
                 ],
                 child: UsersPage(),
               ),
-          Constants.editUserPhonePage: (context) => EditUserPhonePage(),
+          Constants.editUserPhonePage: (context) => MultiProvider(
+                providers: [
+                  ChangeNotifierProvider(
+                    create: (context) => MineViewModel(
+                        repository: Injector.singleton.provideMineRepository()),
+                  )
+                ],
+                child: EditUserPhonePage(),
+              ),
           Constants.editUserNewPhonePage: (context) => EditUserNewPhonePage(),
           Constants.settingsPage: (context) => SettingsPage(),
           Constants.changePasswordPage: (context) => ChangePasswordPage(),

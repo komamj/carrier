@@ -25,4 +25,14 @@ class MineViewModel extends BaseViewModel {
     }
     return user;
   }
+
+  /// 测试账号:18380479234
+  Future<bool> authNotCode(String? phoneNumber) async {
+    if (phoneNumber == null || phoneNumber.isEmpty) {
+      return true;
+    }
+    return repository.authNotCode(phoneNumber, "SMS_156625001").then((user) {
+      return user != null;
+    });
+  }
 }

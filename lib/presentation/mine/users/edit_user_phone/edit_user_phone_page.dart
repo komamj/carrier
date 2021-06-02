@@ -1,7 +1,8 @@
 import 'dart:async';
 
+import 'package:carrier/presentation/mine/mine_view_model.dart';
 import 'package:flutter/material.dart';
-// import 'package:provider/provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../../util/constants.dart';
 
@@ -16,6 +17,8 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
 
   String _smsBtnName = "获取验证码";
 
+  String _mobile = "";
+
   // 响应空白处的焦点的Node
   FocusNode blankNode = FocusNode();
   final TextEditingController _smsController = TextEditingController();
@@ -25,6 +28,12 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
   @override
   void initState() {
     super.initState();
+
+    context.read<MineViewModel>().getUser().then((user) {
+      setState(() {
+        _mobile = user.phoneNumber!;
+      });
+    });
 
     _smsController.addListener(() {
       print(_smsController.text);
@@ -37,17 +46,17 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
     });
   }
 
-  _showToast() {
+  _showToast(String msg) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: const Text('短信验证码已发送，请注意查收。'),
+        content: Text(msg),
       ),
     );
   }
 
   _time() {
     _currentTimer = 60;
-    _showToast();
+    //_showToast('短信验证码已发送，请注意查收。');
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       _currentTimer--;
       if (_currentTimer <= 0) {
@@ -76,7 +85,7 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
                 Expanded(child: Text('旧手机号')),
                 Expanded(
                     child: Text(
-                  '187777777',
+                  _mobile,
                   textAlign: TextAlign.right,
                   style: TextStyle(color: Colors.grey),
                 ))
@@ -121,6 +130,7 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
                   onTap: () {
                     if (_currentTimer <= 0) {
                       this._time();
+                      this._smsCode();
                     }
                   },
                   child: Text(
@@ -151,7 +161,7 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
                   padding: EdgeInsets.symmetric(vertical: 16),
                 ),
                 onPressed: () {
-                  _showToast();
+                  // _showToast();
                   _closekeyboard();
                   if (isGo) {
                     Navigator.pushNamed(
@@ -200,6 +210,20 @@ class _EditUserPhonePageState extends State<EditUserPhonePage> {
         ),
       ),
     );
+  }
+
+  _smsCode() {
+    context.read<MineViewModel>().authNotCode(_mobile).then((result) {
+      if (result) {
+        _showToast('短信验证码已发送，请注意查收。');
+        debugPrint("update phone get sms code successful");
+      } else {
+        _showToast('短信验证码发送失败。');
+        debugPrint("update phone get sms code failed");
+      }
+    }).catchError((error) {
+      debugPrint("update phone get sms code error $error");
+    });
   }
 
   @override
