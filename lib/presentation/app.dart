@@ -96,7 +96,15 @@ class App extends StatelessWidget {
           Constants.carSchedulingPage: (context) => SelectCarPage(),
           Constants.driverSchedulingPage: (context) => SelectDriverPage(),
           Constants.newWaybillPage: (context) => NewWaybillPage(),
-          Constants.usersPage: (context) => UsersPage(),
+          Constants.usersPage: (context) => MultiProvider(
+                providers: [
+                  ChangeNotifierProvider(
+                    create: (context) => MineViewModel(
+                        repository: Injector.singleton.provideMineRepository()),
+                  )
+                ],
+                child: UsersPage(),
+              ),
           Constants.editUserPhonePage: (context) => EditUserPhonePage(),
           Constants.editUserNewPhonePage: (context) => EditUserNewPhonePage(),
           Constants.settingsPage: (context) => SettingsPage(),
