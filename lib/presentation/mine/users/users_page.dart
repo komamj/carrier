@@ -1,6 +1,8 @@
+import 'package:carrier/config/config.dart';
+import 'package:carrier/presentation/mine/mine_view_model.dart';
 import 'package:flutter/material.dart';
-
-import '../../util/constants.dart';
+import 'package:carrier/presentation/util/constants.dart';
+import 'package:provider/provider.dart';
 
 class UsersPage extends StatefulWidget {
   @override
@@ -8,6 +10,24 @@ class UsersPage extends StatefulWidget {
 }
 
 class _UsersPageState extends State<UsersPage> {
+  String _avatar = AVATARDEF;
+  String _name = "";
+  String _mobile = "";
+  String _companyName = "";
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<MineViewModel>().getUser().then((user) {
+      setState(() {
+        _name = user.avatar!;
+        _name = user.nickName!;
+        _mobile = user.phoneNumber!;
+        _companyName = user.organizationName!;
+      });
+    });
+  }
+
   _userPhoto() {
     return Container(
       decoration: BoxDecoration(
@@ -22,7 +42,8 @@ class _UsersPageState extends State<UsersPage> {
               width: 80,
               child: ClipOval(
                 child: Image.network(
-                  'https://pics7.baidu.com/feed/a8773912b31bb051fb37de05c78e64b24bede083.jpeg?token=f02d22e51399a01c6c239e6247cec44f',
+                  _avatar,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -32,7 +53,7 @@ class _UsersPageState extends State<UsersPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("冯更生"),
+                  Text(_name),
                 ],
               ),
             ))
@@ -60,7 +81,7 @@ class _UsersPageState extends State<UsersPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
-                  child: Text("1738888888"),
+                  child: Text(_mobile),
                 ),
                 Material(
                   child: InkWell(
@@ -115,7 +136,7 @@ class _UsersPageState extends State<UsersPage> {
                       child: Text("所属承运商"),
                     )),
                     Text(
-                      "万古长青有限公司",
+                      _companyName,
                       style: TextStyle(color: Colors.grey),
                     )
                   ]),
